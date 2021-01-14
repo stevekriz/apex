@@ -8,7 +8,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('api/img_carousel');
+app.get('api/img_carousel', (req, res) => {
+
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

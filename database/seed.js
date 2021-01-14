@@ -6,7 +6,7 @@ const db = require('./index.js');
 // 100 different lists of images
 
 const getPictures = () => {
-  const numOfPics = Math.random() * (18 - 12) + 12;
+  const numOfPics = Math.round(Math.random() * (18 - 12) + 12);
   const picArray = [];
   for (let i = 0; i < numOfPics; i++) {
     picArray.push(
