@@ -5,6 +5,10 @@ const db = require('./index.js');
 
 // 100 different lists of images
 
+const onePic = () => {
+  return 'https://loremflickr.com/320/240/mansion';
+};
+
 const getPictures = () => {
   const numOfPics = Math.round(Math.random() * (18 - 12) + 12);
   const picArray = [];
@@ -15,7 +19,7 @@ const getPictures = () => {
     picArray.push(
       {
         imgId: i,
-        imgUrl: 'https://loremflickr.com/320/240/mansion',
+        imgUrl: onePic,
         imgName: faker.internet.userName(),
         imgDescription: faker.name.jobDescriptor(),
         HouseType: faker.lorem.word(),
@@ -26,8 +30,7 @@ const getPictures = () => {
         NumberOfBeds: Math.round(Math.random() * (5 - 1) + 1),
         PricePerNight: Math.round(Math.random() * (350 - 120) + 120),
         staysList: staySet,
-      },
-    );
+      });
   }
   return picArray;
 };
