@@ -19,6 +19,7 @@ const CarouselSchema = new Schema({
   isSuperHost: Boolean,
   isLiked: Boolean,
   ImgUrls: Array,
+  stayList: Array,
 });
 
 const StayEntry = new Schema({
