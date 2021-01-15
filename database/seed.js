@@ -14,8 +14,6 @@ const getPictures = () => {
   const picArray = [];
 
   for (let i = 0; i < numOfPics; i++) {
-
-    const staySet = getListData();
     picArray.push(
       {
         imgId: i,

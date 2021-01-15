@@ -30,7 +30,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>hello</div>
+      <Fragment>
+        <h1>More places to stay</h1>
+        <div>hello</div>
+      </Fragment>
+
     );
   }
 }
