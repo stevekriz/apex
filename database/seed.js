@@ -8,13 +8,24 @@ const db = require('./index.js');
 const getPictures = () => {
   const numOfPics = Math.round(Math.random() * (18 - 12) + 12);
   const picArray = [];
+
   for (let i = 0; i < numOfPics; i++) {
+
+    const staySet = getListData();
     picArray.push(
       {
         imgId: i,
-        imgUrl: faker.image.nightlife(),
+        imgUrl: 'https://loremflickr.com/320/240/mansion',
         imgName: faker.internet.userName(),
         imgDescription: faker.name.jobDescriptor(),
+        HouseType: faker.lorem.word(),
+        description: faker.random.words(),
+        isSuperHost: faker.random.boolean(),
+        isLiked: faker.random.boolean(),
+        AverageRating: Math.floor(Math.random() * (5 - 0)),
+        NumberOfBeds: Math.round(Math.random() * (5 - 1) + 1),
+        PricePerNight: Math.round(Math.random() * (350 - 120) + 120),
+        staysList: staySet,
       },
     );
   }
@@ -41,14 +52,6 @@ const SampleData = () => {
     const newCarousel = new db.CarouselModel({
       id: i,
       ImgUrls: imgSet,
-      HouseType: faker.lorem.word(),
-      description: faker.random.words(),
-      isSuperHost: faker.random.boolean(),
-      isLiked: faker.random.boolean(),
-      AverageRating: Math.floor(Math.random() * (5 - 0)),
-      NumberOfBeds: Math.round(Math.random() * (5 - 1) + 1),
-      PricePerNight: Math.round(Math.random() * (350 - 120) + 120),
-      staysList: staySet,
     });
 
     newCarousel.save();
