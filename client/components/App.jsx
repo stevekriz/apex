@@ -7,7 +7,8 @@ class App extends Component {
     super();
 
     this.state = {
-      gallery: []
+      gallery: [],
+      stayList: [],
     };
 
     this.getData = this.getData.bind(this);
@@ -19,7 +20,8 @@ class App extends Component {
   getData() {
     axios.get('/api/img_carousel/5')
       .then(response => this.setState({
-        gallery: response.data
+        gallery: response.data[0].ImgUrls,
+        stayList: response.data[0].stayList
       })
       )
       .catch(console.log);
@@ -28,9 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      this.state.gallery.map(element => {
-        return <div>{element.id}</div>;
-      })
+      <div>hello</div>
     );
   }
 }

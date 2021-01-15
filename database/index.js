@@ -7,6 +7,7 @@ mongoose.connect('mongodb://localhost/photo_carousel', {
   useCreateIndex: true,
 });
 
+const connection = mongoose.connection;
 const { Schema } = mongoose;
 
 const CarouselSchema = new Schema({
@@ -34,4 +35,5 @@ const StayModel = mongoose.model('StayModel', StayEntry);
 module.exports = {
   CarouselModel,
   StayModel,
+  connection,
 };
