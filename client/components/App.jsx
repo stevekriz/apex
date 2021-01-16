@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 
-
 class App extends Component {
   constructor() {
     super();
@@ -30,10 +29,10 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <h1>More places to stay</h1>
         <div>hello</div>
-      </Fragment>
+      </>
 
     );
   }
