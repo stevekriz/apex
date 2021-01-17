@@ -15,7 +15,6 @@ describe('/api/img_carousel/:id', function() {
   it('brings back some appriopriate data ', function(done) {
     request(`localhost:${port}`)
       .get(`/api/img_carousel/${id}`)
-      .send()
       .expect((res) => {
         res.body[0].id = id;
       })

@@ -6,7 +6,9 @@ const db = require('./index.js');
 // 100 different lists of images
 
 const onePic = () => {
-  return 'https://loremflickr.com/320/240/mansion';
+  const folder = Math.round(Math.random() * (3 - 1) + 1);
+  const image = Math.round(Math.random() * (15 - 0));
+  return `https://fec-photos-storage.s3-us-west-1.amazonaws.com/${folder}/${image}.jpg`;
 };
 
 const getPictures = () => {
@@ -17,7 +19,7 @@ const getPictures = () => {
     picArray.push(
       {
         imgId: i,
-        imgUrl: onePic,
+        imgUrl: onePic(),
         imgName: faker.internet.userName(),
         imgDescription: faker.name.jobDescriptor(),
         HouseType: faker.lorem.word(),
@@ -61,5 +63,3 @@ const SampleData = () => {
 };
 
 SampleData();
-
-db.connection.close();

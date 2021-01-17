@@ -1,5 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
+
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
+  border:bold;
+`;
+
 
 class App extends Component {
   constructor() {
@@ -29,11 +43,11 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <h1>More places to stay</h1>
-        <div>hello</div>
-      </>
-
+      <Wrapper>
+        <Title>
+          Hello World!
+        </Title>
+      </Wrapper>
     );
   }
 }
