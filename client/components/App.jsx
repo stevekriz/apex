@@ -1,15 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-`;
+import Banner from './Banner.jsx';
 
 const Wrapper = styled.section`
+  display: flex;
   padding: 4em;
+  border-style: solid;
   background: papayawhip;
   border:bold;
 `;
@@ -44,9 +41,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>
-          Hello World!
-        </Title>
+        <Banner />
       </Wrapper>
     );
   }
