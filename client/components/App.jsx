@@ -5,7 +5,8 @@ import Banner from './Banner.jsx';
 
 const Wrapper = styled.section`
   display: flex;
-  padding: 4em;
+  width: 100%;
+  height: 400px;
   border-style: solid;
   background: papayawhip;
   border:bold;
