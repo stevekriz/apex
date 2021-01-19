@@ -21,19 +21,29 @@ const HeaderText = styled.h2`
 `;
 
 const PageIndicator = styled.div`
+  font-family: Circular;
+  font-size: 14px;
+  position: relative;
+  height: auto;
+  padding: 20px;
+  width: 10%;
   float: right;
+  up: -20px;
+  left: 130px;
 `;
 
 const PageScrollButton = styled.button`
   border-color: rgba( 255, 255, 255, 0.9);
   border-bottom-color: rgba(0, 0, 0, 0.08);
   border-radius: 50%;
-  cursor: pointer
+  cursor: pointer;
+  padding: 10px;
+  margin 10px;
   display: inline-flex;
   float: right;
   line-height: normal;
   height: 32px;
-  width; auto;
+  width; 25px;
 `;
 
 
@@ -48,8 +58,8 @@ class Banner extends Component {
         <HeaderText>
           More places to stay
         </HeaderText>
-        <PageScrollButton> B </PageScrollButton>
-        <PageScrollButton> B </PageScrollButton>
+        <PageScrollButton> R </PageScrollButton>
+        <PageScrollButton> L </PageScrollButton>
         <PageIndicator> 1/3 </PageIndicator>
       </Wrapper>
 

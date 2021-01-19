@@ -25,8 +25,8 @@ const getPictures = () => {
         HouseType: faker.lorem.word(),
         description: faker.random.words(),
         isSuperHost: faker.random.boolean(),
-        isLiked: faker.random.boolean(),
-        AverageRating: Math.floor(Math.random() * (5 - 0)),
+        isLiked: false,
+        AverageRating: Math.random() * (5 - 0),
         NumberOfBeds: Math.round(Math.random() * (5 - 1) + 1),
         PricePerNight: Math.round(Math.random() * (350 - 120) + 120),
       });

@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Banner from './Banner.jsx';
+import Carousel from './Carousel.jsx';
 
 const Wrapper = styled.section`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: 400px;
   border-style: solid;
@@ -20,6 +22,7 @@ class App extends Component {
     this.state = {
       gallery: [],
       stayList: [],
+      page: 0
     };
 
     this.getData = this.getData.bind(this);
@@ -43,6 +46,10 @@ class App extends Component {
     return (
       <Wrapper>
         <Banner />
+        <Carousel
+          gallery={this.state.gallery}
+          page={this.state.page}
+        />
       </Wrapper>
     );
   }
