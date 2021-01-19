@@ -10,32 +10,40 @@ const Wrapper = styled.div`
   height: 56px;
 `;
 
-const HeaderText = styled.h2`
+const HeaderText = styled.div`
   font-family: Circular;
   font-size: 22px;
   display: flex;
+  padding: 20px;
   position: relative;
   float: left;
   width: 200px;
   height: auto:
+  right: 20px;
 `;
 
 const PageIndicator = styled.div`
   font-family: Circular;
-  font-size: 14px;
+  font-size: 18px;
   position: relative;
   height: auto;
-  padding: 20px;
-  width: 10%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: auto;
   float: right;
   up: -20px;
-  left: 130px;
+  left: -20px;
 `;
 
 const PageScrollButton = styled.button`
+  background-color: rgba(255, 255, 255, 0.9);
   border-color: rgba( 255, 255, 255, 0.9);
   border-bottom-color: rgba(0, 0, 0, 0.08);
+  border-bottom-style: solid;
+  border-right-color: gba(0, 0, 0, 0.08);
+  border-right-style: solid;
   border-radius: 50%;
+  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
   cursor: pointer;
   padding: 10px;
   margin 10px;
@@ -46,7 +54,6 @@ const PageScrollButton = styled.button`
   width; 25px;
 `;
 
-
 class Banner extends Component {
   constructor(props) {
     super(props);
@@ -55,9 +62,7 @@ class Banner extends Component {
   render() {
     return (
       <Wrapper>
-        <HeaderText>
-          More places to stay
-        </HeaderText>
+        <HeaderText> More places to stay </HeaderText>
         <PageScrollButton> R </PageScrollButton>
         <PageScrollButton> L </PageScrollButton>
         <PageIndicator> 1/3 </PageIndicator>

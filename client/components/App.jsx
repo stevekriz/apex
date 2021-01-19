@@ -5,9 +5,13 @@ import Banner from './Banner.jsx';
 import Carousel from './Carousel.jsx';
 
 const Wrapper = styled.section`
+  font-family: Circular;
+  margin: 5%;
+  align: center;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  max-width: 1128px;
   height: 400px;
   border-style: solid;
   background: papayawhip;
