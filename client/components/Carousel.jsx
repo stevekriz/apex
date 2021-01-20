@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import CarouselEntry from './CarouselEntry.jsx';
 
-const Wrapper = styled.div`
+const CarouselContainer = styled.div`
   display: flex;
   position: relative;
   border-style: solid;
@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   &::-webkit-scrollbar {
     width: 0 !important
   }
+
 `;
 
 class Carousel extends Component {
@@ -25,12 +26,12 @@ class Carousel extends Component {
 
   render() {
     return (
-      <Wrapper>
+      <CarouselContainer translate={this.props.page}>
         {this.props.gallery.map((entry) => {
           return <CarouselEntry key={entry.imgId} entry={entry}/>
         }
       )}
-      </Wrapper>
+      </CarouselContainer>
     );
   }
 }

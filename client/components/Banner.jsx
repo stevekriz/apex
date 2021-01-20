@@ -56,23 +56,30 @@ const PageScrollButton = styled.button`
   width; 25px;
 `;
 
-
 class Banner extends Component {
   constructor(props) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    console.log(e.target);
+    this.props.direction(e.target.value);
   }
 
   render() {
     return (
       <Wrapper>
         <HeaderText> More places to stay </HeaderText>
-        <PageScrollButton> R </PageScrollButton>
-        <PageScrollButton> L </PageScrollButton>
-        <PageIndicator> 1/3 </PageIndicator>
+        <PageScrollButton value="right" onClick={this.handleClick}> R </PageScrollButton>
+        <PageScrollButton value="left"onClick={this.handleClick}> L </PageScrollButton>
+        <PageIndicator> {this.props.page}/{this.props.maxPage} </PageIndicator>
       </Wrapper>
 
     );
   }
 }
+
 
 export default Banner;

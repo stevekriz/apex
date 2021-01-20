@@ -78,10 +78,16 @@ const CarouselEntry = (props) => {
         <EntryInfo>
           <div>rating is {props.entry.AverageRating.toFixed(2)}</div>
           <div>
-            {props.entry.HouseType} · {props.entry.NumberOfBeds} beds
+            {props.entry.HouseType}
+            ·
+            {props.entry.NumberOfBeds} beds
           </div>
           <HouseInfo>{props.entry.description}</HouseInfo>
-          <div> ${props.entry.PricePerNight}/night</div>
+          <div>
+            $
+            {props.entry.PricePerNight}
+            /night
+          </div>
         </EntryInfo>
       </Entry>
   );
