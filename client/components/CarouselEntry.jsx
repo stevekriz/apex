@@ -1,16 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Entry = styled.div`
   display: inline-block;
+  border-style: solid;
   position: relative;
   alignment: left;
   box-sizing: border-box;
-  width: 30%;
+  width: 23.2%;
   height: auto;
   cursor: pointer;
   padding-top: 20px;
-  margin: 1%;
+  margin: 10px;
+  transform: translateX(-${(props) => (props.translate - 1) * 1187}px);
+  transition: transform 0.3s ease-in;
 `;
 
 const EntryInfo = styled.div`
@@ -21,14 +24,14 @@ const ImgContainer = styled.div`
   position: relative;
   align-items: center;
   display: flex;
-  height: 191px;
-  width: 234px;
+  height: 150px;
+  width: 270px;
 `;
 
 const Img = styled.img`
   position: relative;
   display: inline-flex;
-  border-radius: 5px;
+  border-radius: 8px;
   height: 100%;
   width: 100%;
 `;
@@ -53,12 +56,13 @@ const IsSuperHost = styled.span`
 `;
 
 const IsLiked = styled.div`
+  color: red;
   position: absolute;
   display: inline-flex;
   float: right;
   z-index: 2;
   padding: 15px;
-  padding-left: 200px;
+  padding-left: 250px;
 `;
 
 const HouseInfo = styled.div`
@@ -69,7 +73,7 @@ const HouseInfo = styled.div`
 
 const CarouselEntry = (props) => {
   return (
-      <Entry>
+      <Entry translate={props.translate}>
         {props.entry.isSuperHost ? <IsSuperHost> SUPERHOST</IsSuperHost> : ''}
         <IsLiked>H</IsLiked>
         <ImgContainer>

@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import CarouselEntry from './CarouselEntry.jsx';
+import CarouselEntry from './CarouselEntry';
 
-const CarouselContainer = styled.div`
-  display: flex;
-  position: relative;
+const TheCarousel = styled.div`
+  box-sizing: border-box;
   border-style: solid;
-  width: 120%;
-  height: 320px;
+  width: 100%;
+  height: 350px;
   right: -20px;
-  flex-wrap: nowrap;
   overflow-x: auto;
+  white-space: nowrap;
   &::-webkit-scrollbar {
     width: 0 !important
-  }
+  };
+`;
 
+const CarouselContainer = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  overflow-x: hidden;
 `;
 
 class Carousel extends Component {
@@ -26,11 +33,12 @@ class Carousel extends Component {
 
   render() {
     return (
-      <CarouselContainer translate={this.props.page}>
-        {this.props.gallery.map((entry) => {
-          return <CarouselEntry key={entry.imgId} entry={entry}/>
-        }
-      )}
+      <CarouselContainer>
+        <TheCarousel>
+          {this.props.gallery.map((entry) => {
+            return <CarouselEntry translate={this.props.page} key={entry.imgId} entry={entry}/>
+          })}
+        </TheCarousel>
       </CarouselContainer>
     );
   }

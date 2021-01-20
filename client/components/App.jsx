@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import Banner from './Banner.jsx';
-import Carousel from './Carousel.jsx';
+import Banner from './Banner';
+import Carousel from './Carousel';
 
 const Wrapper = styled.section`
   margin: 5%;
@@ -10,7 +10,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   height: 400px;
   background-color: rgba(247, 247, 247, 1);
 `;
@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   scrollPage(direction) {
-    const maxPage = Math.floor(this.state.gallery.length / 4);
+    const maxPage = Math.ceil(this.state.gallery.length / 4);
     if (direction === 'right') {
       if (this.state.page === maxPage) {
         this.setState({
@@ -74,7 +74,7 @@ class App extends Component {
         <Banner
           direction={this.scrollPage}
           page={this.state.page}
-          maxPage={Math.floor(this.state.gallery.length / 4)}
+          maxPage={Math.ceil(this.state.gallery.length / 4)}
         />
         <Carousel
           gallery={this.state.gallery}

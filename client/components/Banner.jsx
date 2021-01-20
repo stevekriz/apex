@@ -64,7 +64,6 @@ class Banner extends Component {
   }
 
   handleClick(e) {
-    console.log(e.target);
     this.props.direction(e.target.value);
   }
 
