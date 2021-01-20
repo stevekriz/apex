@@ -4,7 +4,6 @@ const port = 3000;
 
 describe('/api/img_carousel/:id', function() {
   const id = Math.floor(Math.random() * (100 - 1) + 1);
-
   it('makes a successful API call', function(done) {
     request(`localhost:${port}`)
       .get(`/api/img_carousel/${id}`)

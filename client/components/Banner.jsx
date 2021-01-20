@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border-style: solid;
   position: relative;
   right: -20px;
   top: 15px;
@@ -11,8 +10,11 @@ const Wrapper = styled.div`
 `;
 
 const HeaderText = styled.div`
-  font-family: Circular;
+  font-family: Circular, -apple-system, system-ui, Roboto, Helvetica Neue, sans-serif !important;
+  font-weight: 600;
   font-size: 22px;
+  color: #222222;
+  line-height: 26px;
   display: flex;
   padding: 20px;
   position: relative;
@@ -23,7 +25,7 @@ const HeaderText = styled.div`
 `;
 
 const PageIndicator = styled.div`
-  font-family: Circular;
+  font-family: Circular, -apple-system, system-ui, Roboto, Helvetica Neue, sans-serif !important;
   font-size: 18px;
   position: relative;
   height: auto;
@@ -53,6 +55,7 @@ const PageScrollButton = styled.button`
   height: 32px;
   width; 25px;
 `;
+
 
 class Banner extends Component {
   constructor(props) {

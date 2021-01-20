@@ -4,28 +4,32 @@ import CarouselEntry from './CarouselEntry.jsx';
 
 const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
   position: relative;
   border-style: solid;
-  width: 95%;
-  height: 300px;
+  width: 120%;
+  height: 320px;
   right: -20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 0 !important
+  }
 `;
 
 class Carousel extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {};
   }
 
   render() {
     return (
       <Wrapper>
-        {this.props.gallery.map( (entry) => {
-          let page = Math.floor((entry.imgId) / 4);
-          if (page === this.props.page) {
-            return <CarouselEntry key={entry.imgId} entry={entry}/>;
-          }
-        })}
+        {this.props.gallery.map((entry) => {
+          return <CarouselEntry key={entry.imgId} entry={entry}/>
+        }
+      )}
       </Wrapper>
     );
   }
