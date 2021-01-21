@@ -5,6 +5,7 @@ import Banner from './Banner';
 import Carousel from './Carousel';
 
 const Wrapper = styled.div`
+  font-family: Circular !important;
   margin: 5%;
   align: center;
   display: flex;
@@ -19,8 +20,10 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    const { id } = props;
+
     this.state = {
-      dataId: this.props.id,
+      dataId: id,
       gallery: [],
       stayList: [],
       page: 1,
@@ -28,6 +31,8 @@ class App extends Component {
 
     this.getData = this.getData.bind(this);
     this.scrollPage = this.scrollPage.bind(this);
+
+    const { gallery, page, dataId } = this.state;
   }
 
   componentDidMount() {
@@ -35,7 +40,8 @@ class App extends Component {
   }
 
   getData() {
-    axios.get(`/api/img_carousel/${this.state.dataId}`)
+    const { dataId } = this.state;
+    axios.get(`/api/img_carousel/${dataId}`)
       .then((response) => this.setState({
         gallery: response.data[0].ImgUrls,
         stayList: response.data[0].stayList,
@@ -44,41 +50,43 @@ class App extends Component {
   }
 
   scrollPage(direction) {
-    const maxPage = Math.ceil(this.state.gallery.length / 4);
+    const { gallery, page } = this.state;
+    const maxPage = Math.ceil(gallery.length / 4);
     if (direction === 'right') {
-      if (this.state.page === maxPage) {
+      if (page === maxPage) {
         this.setState({
           page: 1,
         });
       } else {
         this.setState({
-          page: this.state.page + 1,
+          page: page + 1,
         });
       }
     } else if (direction === 'left') {
-      if (this.state.page === 1) {
+      if (page === 1) {
         this.setState({
           page: maxPage,
         });
       } else {
         this.setState({
-          page: this.state.page - 1,
+          page: page - 1,
         });
       }
     }
   }
 
   render() {
+    const { page, gallery } = this.state;
     return (
       <Wrapper>
         <Banner
           direction={this.scrollPage}
-          page={this.state.page}
-          maxPage={Math.ceil(this.state.gallery.length / 4)}
+          page={page}
+          maxPage={Math.ceil(gallery.length / 4)}
         />
         <Carousel
-          gallery={this.state.gallery}
-          page={this.state.page}
+          gallery={gallery}
+          page={page}
         />
       </Wrapper>
     );

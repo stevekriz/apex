@@ -4,7 +4,6 @@ import CarouselEntry from './CarouselEntry';
 
 const TheCarousel = styled.div`
   box-sizing: border-box;
-  border-style: solid;
   width: 100%;
   height: 350px;
   right: -20px;

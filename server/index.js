@@ -10,9 +10,8 @@ app.use('/:id', express.static(path.join(__dirname, '../public')));
 app.get('/api/img_carousel/:id', controllers.getPictures);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Photo Carousel App listening at http://localhost:${port}`);
 });
-
 
 module.exports = {
   app,

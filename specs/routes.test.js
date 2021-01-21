@@ -1,5 +1,5 @@
 const request = require('supertest');
-const express = require('express');
+
 const port = 3000;
 
 describe('/api/img_carousel/:id', function() {

@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 `;
 
 const HeaderText = styled.div`
-  font-family: Circular, -apple-system, system-ui, Roboto, Helvetica Neue, sans-serif !important;
   font-weight: 600;
   font-size: 22px;
   color: #222222;
@@ -54,6 +53,7 @@ const PageScrollButton = styled.button`
   line-height: normal;
   height: 32px;
   width; 25px;
+  outline: none;
 `;
 
 class Banner extends Component {
@@ -64,21 +64,25 @@ class Banner extends Component {
   }
 
   handleClick(e) {
-    this.props.direction(e.target.value);
+    const { direction } = this.props;
+    direction(e.target.value);
   }
 
   render() {
+    const { page, maxPage } = this.props;
     return (
       <Wrapper>
         <HeaderText> More places to stay </HeaderText>
-        <PageScrollButton value="right" onClick={this.handleClick}> R </PageScrollButton>
-        <PageScrollButton value="left"onClick={this.handleClick}> L </PageScrollButton>
-        <PageIndicator> {this.props.page}/{this.props.maxPage} </PageIndicator>
+        <PageScrollButton value="right" onClick={this.handleClick}>
+          <i className="fas fa-chevron-right" />
+        </PageScrollButton>
+        <PageScrollButton value="left" onClick={this.handleClick}>
+          <i className="fas fa-chevron-left" />
+        </PageScrollButton>
+        <PageIndicator>{`${page} / ${maxPage}`}</PageIndicator>
       </Wrapper>
-
     );
   }
 }
-
 
 export default Banner;

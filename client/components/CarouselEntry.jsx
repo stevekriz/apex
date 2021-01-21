@@ -1,9 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const StarContainer = styled.span`
+  width: 8px;
+  height: 8px;
+  color: #ff385c;
+`;
+
+const ReviewCount = styled.span`
+  color: #717175;
+`;
+
 const Entry = styled.div`
+  font-size: 16px;
   display: inline-block;
-  border-style: solid;
   position: relative;
   alignment: left;
   box-sizing: border-box;
@@ -24,7 +34,7 @@ const ImgContainer = styled.div`
   position: relative;
   align-items: center;
   display: flex;
-  height: 150px;
+  height: 190px;
   width: 270px;
 `;
 
@@ -37,22 +47,22 @@ const Img = styled.img`
 `;
 
 const IsSuperHost = styled.span`
-  font-family: Circular, -apple-system, system-ui, Roboto, Helvetica Neue, sans-serif !important;
-  font-size: 16px;
-  color: #222222;
+  font-size: 12px;
+  background-color: #f8f8f7;
   line-height: 20px;
   text-align: center;
   position: absolute;
   background-color: white;
   border-radius: 5px;
   display: inline-flex;
-  width: 38%;
-  height: 5%;
+  width: 23%;
+  height: 2%;
   z-index: 2;
   padding: 10px;
   padding-top: 5px;
   padding-left: 5px;
   margin: 10px;
+  box-shadow: black;
 `;
 
 const IsLiked = styled.div`
@@ -66,34 +76,56 @@ const IsLiked = styled.div`
 `;
 
 const HouseInfo = styled.div`
+  line-height: 20px;
+  padding-top: 10px;
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 
 const CarouselEntry = (props) => {
+  const { entry, translate } = props;
+  const {
+    PricePerNight,
+    isSuperHost,
+    imgUrl,
+    AverageRating,
+    HouseType,
+    NumberOfBeds,
+    description,
+  } = entry;
   return (
-      <Entry translate={props.translate}>
-        {props.entry.isSuperHost ? <IsSuperHost> SUPERHOST</IsSuperHost> : ''}
-        <IsLiked>H</IsLiked>
-        <ImgContainer>
-          <Img src={props.entry.imgUrl} />
-        </ImgContainer>
-        <EntryInfo>
-          <div>rating is {props.entry.AverageRating.toFixed(2)}</div>
+    <Entry translate={translate}>
+      {isSuperHost ? <IsSuperHost> SUPERHOST</IsSuperHost> : ''}
+      {/* <IsLiked>H</IsLiked> */}
+      <ImgContainer>
+        <Img src={imgUrl} />
+      </ImgContainer>
+      <EntryInfo>
+        <HouseInfo>
           <div>
-            {props.entry.HouseType}
-            ·
-            {props.entry.NumberOfBeds} beds
+            <StarContainer>
+              <i className="fas fa-star" />
+            </StarContainer>
+            {` ${AverageRating.toFixed(2)}`}
+            <ReviewCount>
+              {` (${Math.round(Math.random() * (200 - 22) + 22)})`}
+            </ReviewCount>
           </div>
-          <HouseInfo>{props.entry.description}</HouseInfo>
           <div>
-            $
-            {props.entry.PricePerNight}
-            /night
+            {`${HouseType} · ${NumberOfBeds} beds`}
           </div>
-        </EntryInfo>
-      </Entry>
+
+          <div>
+            {description}
+          </div>
+          <div>
+            {`$${PricePerNight} / night `}
+          </div>
+        </HouseInfo>
+      </EntryInfo>
+    </Entry>
+
   );
 };
 
