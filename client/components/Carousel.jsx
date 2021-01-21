@@ -31,12 +31,18 @@ class Carousel extends Component {
   }
 
   render() {
+    const { toggleLiked, page, gallery } = this.props;
     return (
       <CarouselContainer>
         <TheCarousel>
-          {this.props.gallery.map((entry) => {
-            return <CarouselEntry translate={this.props.page} key={entry.imgId} entry={entry}/>
-          })}
+          {gallery.map((entry) => (
+            <CarouselEntry
+              toggleLiked={toggleLiked}
+              translate={page}
+              key={entry.imgId}
+              entry={entry}
+            />
+          ))}
         </TheCarousel>
       </CarouselContainer>
     );

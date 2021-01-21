@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const StarContainer = styled.span`
-  width: 8px;
-  height: 8px;
+  width: 20px;
+  height: 20px;
   color: #ff385c;
 `;
 
@@ -75,14 +75,14 @@ const IsLiked = styled.div`
 `;
 
 const FilledHeart = styled.div`
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 16px;
   color: #e62051;
 `;
 
 const UnfilledHeart = styled.div`
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 16px;
   color: white;
 `;
 
@@ -93,65 +93,84 @@ const HouseInfo = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
+class CarouselEntry extends Component {
+  constructor(props) {
+    super(props);
 
-const CarouselEntry = (props) => {
-  const { entry, translate } = props;
-  const {
-    PricePerNight,
-    isSuperHost,
-    imgUrl,
-    AverageRating,
-    HouseType,
-    NumberOfBeds,
-    description,
-    isLiked,
-  } = entry;
-  return (
-    <Entry translate={translate}>
-      {isSuperHost ? <IsSuperHost> SUPERHOST</IsSuperHost> : ''}
-      <IsLiked>
-        {isLiked
-          ? (
-            <FilledHeart>
-              <i className="fas fa-heart" />
-            </FilledHeart>
-          )
-          : (
-            <UnfilledHeart>
-              <i className="far fa-heart" />
-            </UnfilledHeart>
-          )}
+    const { isLiked } = this.props;
 
-      </IsLiked>
-      <ImgContainer>
-        <Img src={imgUrl} />
-      </ImgContainer>
-      <EntryInfo>
-        <HouseInfo>
-          <div>
-            <StarContainer>
-              <i className="fas fa-star" />
-            </StarContainer>
-            {` ${AverageRating.toFixed(2)}`}
-            <ReviewCount>
-              {` (${Math.round(Math.random() * (200 - 22) + 22)})`}
-            </ReviewCount>
-          </div>
-          <div>
-            {`${HouseType} · ${NumberOfBeds} beds`}
-          </div>
+    this.state = {
+      liked: false,
+    };
 
-          <div>
-            {description}
-          </div>
-          <div>
-            {`$${PricePerNight} / night `}
-          </div>
-        </HouseInfo>
-      </EntryInfo>
-    </Entry>
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  );
-};
+  handleClick(e) {
+    const { liked } = this.state;
+    this.setState({
+      liked: !liked,
+    });
+  }
+
+  render() {
+    const { entry, translate } = this.props;
+    const {
+      PricePerNight,
+      isSuperHost,
+      imgUrl,
+      AverageRating,
+      HouseType,
+      NumberOfBeds,
+      description,
+    } = entry;
+    const { liked } = this.state;
+    return (
+      <Entry translate={translate}>
+        {isSuperHost ? <IsSuperHost> SUPERHOST</IsSuperHost> : ''}
+        <IsLiked>
+          {liked
+            ? (
+              <FilledHeart>
+                <i className="fas fa-heart" onClick={this.handleClick} />
+              </FilledHeart>
+            )
+            : (
+              <UnfilledHeart>
+                <i className="far fa-heart" onClick={this.handleClick} />
+              </UnfilledHeart>
+            )}
+
+        </IsLiked>
+        <ImgContainer>
+          <Img src={imgUrl} />
+        </ImgContainer>
+        <EntryInfo>
+          <HouseInfo>
+            <div>
+              <StarContainer>
+                <i className="fas fa-star" />
+              </StarContainer>
+              {` ${AverageRating.toFixed(2)}`}
+              <ReviewCount>
+                {` (${Math.round(Math.random() * (200 - 22) + 22)})`}
+              </ReviewCount>
+            </div>
+            <div>
+              {`${HouseType} · ${NumberOfBeds} beds`}
+            </div>
+
+            <div>
+              {description}
+            </div>
+            <div>
+              {`$${PricePerNight} / night `}
+            </div>
+          </HouseInfo>
+        </EntryInfo>
+      </Entry>
+    );
+  }
+}
 
 export default CarouselEntry;

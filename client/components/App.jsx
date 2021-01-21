@@ -25,7 +25,7 @@ class App extends Component {
     this.state = {
       dataId: id,
       gallery: [],
-      stayList: [],
+      // stayList: [],
       page: 1,
     };
 
@@ -43,7 +43,7 @@ class App extends Component {
     axios.get(`/api/img_carousel/${dataId}`)
       .then((response) => this.setState({
         gallery: response.data[0].ImgUrls,
-        stayList: response.data[0].stayList,
+        // stayList: response.data[0].stayList,
       }))
       .catch((error) => { throw error; });
   }
@@ -75,7 +75,6 @@ class App extends Component {
   }
 
   toggleIsLiked(id) {
-    console.log(id);
     axios.patch(`/api/img_carousel/${id}`)
       .then(this.getData)
       .catch((err) => { throw err; });
@@ -91,6 +90,7 @@ class App extends Component {
           maxPage={Math.ceil(gallery.length / 4)}
         />
         <Carousel
+          toggleLiked={this.toggleIsLiked}
           gallery={gallery}
           page={page}
         />
