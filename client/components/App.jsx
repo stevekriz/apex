@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Banner from './Banner';
 import Carousel from './Carousel';
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   margin: 5%;
   align: center;
   display: flex;
@@ -16,11 +16,11 @@ const Wrapper = styled.section`
 `;
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      dataId: window.location.pathname.match(/\/(\d+)\//),
+      dataId: this.props.id,
       gallery: [],
       stayList: [],
       page: 1,
@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   getData() {
-    axios.get(`/api/img_carousel/${window.location.pathname.match(/\/(\d+)\//)[1]}`)
+    axios.get(`/api/img_carousel/${this.state.dataId}`)
       .then((response) => this.setState({
         gallery: response.data[0].ImgUrls,
         stayList: response.data[0].stayList,
