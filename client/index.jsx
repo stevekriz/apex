@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
+import App from './components/App';
+
+const DATA_ID = window.location.pathname.match(/\/(\d+)\//)[1];
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+  <App id={DATA_ID} />,
+  document.getElementById('app'),
 );

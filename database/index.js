@@ -12,7 +12,7 @@ const { Schema } = mongoose;
 
 const CarouselSchema = new Schema({
   id: Number,
-  AverageRating: Number,
+  AverageRating: String,
   HouseType: String,
   NumberOfBeds: Number,
   PricePerNight: String,
