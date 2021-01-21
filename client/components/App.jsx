@@ -31,8 +31,7 @@ class App extends Component {
 
     this.getData = this.getData.bind(this);
     this.scrollPage = this.scrollPage.bind(this);
-
-    const { gallery, page, dataId } = this.state;
+    this.toggleIsLiked = this.toggleIsLiked.bind(this);
   }
 
   componentDidMount() {
@@ -73,6 +72,13 @@ class App extends Component {
         });
       }
     }
+  }
+
+  toggleIsLiked(id) {
+    console.log(id);
+    axios.patch(`/api/img_carousel/${id}`)
+      .then(this.getData)
+      .catch((err) => { throw err; });
   }
 
   render() {

@@ -66,13 +66,24 @@ const IsSuperHost = styled.span`
 `;
 
 const IsLiked = styled.div`
-  color: red;
   position: absolute;
   display: inline-flex;
   float: right;
   z-index: 2;
   padding: 15px;
   padding-left: 250px;
+`;
+
+const FilledHeart = styled.div`
+  height: 20px;
+  width: 20px;
+  color: #e62051;
+`;
+
+const UnfilledHeart = styled.div`
+  height: 20px;
+  width: 20px;
+  color: white;
 `;
 
 const HouseInfo = styled.div`
@@ -93,11 +104,25 @@ const CarouselEntry = (props) => {
     HouseType,
     NumberOfBeds,
     description,
+    isLiked,
   } = entry;
   return (
     <Entry translate={translate}>
       {isSuperHost ? <IsSuperHost> SUPERHOST</IsSuperHost> : ''}
-      {/* <IsLiked>H</IsLiked> */}
+      <IsLiked>
+        {isLiked
+          ? (
+            <FilledHeart>
+              <i className="fas fa-heart" />
+            </FilledHeart>
+          )
+          : (
+            <UnfilledHeart>
+              <i className="far fa-heart" />
+            </UnfilledHeart>
+          )}
+
+      </IsLiked>
       <ImgContainer>
         <Img src={imgUrl} />
       </ImgContainer>
