@@ -35,7 +35,7 @@ const PageIndicator = styled.div`
   float: right;
   up: -20px;
   left: -20px;
-`;
+  `;
 
 const PageScrollButton = styled.button`
   background-color: rgba(255, 255, 255, 0.9);
