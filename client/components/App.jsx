@@ -5,15 +5,20 @@ import Banner from './Banner';
 import Carousel from './Carousel';
 
 const Wrapper = styled.div`
-  font-family: Circular !important;
+  background-color: rgba(247, 247, 247, 1);
+  height: auto;
+  width: auto;
+`;
+const AppContainer = styled.div`
+  font-family: Nunito Sans;
   margin: 5%;
   align: center;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 250%;
   max-width: 1200px;
   height: 400px;
-  background-color: rgba(247, 247, 247, 1);
+  padding-left: 3%;
 `;
 
 class App extends Component {
@@ -84,16 +89,18 @@ class App extends Component {
     const { page, gallery } = this.state;
     return (
       <Wrapper>
-        <Banner
-          direction={this.scrollPage}
-          page={page}
-          maxPage={Math.ceil(gallery.length / 4)}
-        />
-        <Carousel
-          toggleLiked={this.toggleIsLiked}
-          gallery={gallery}
-          page={page}
-        />
+        <AppContainer>
+          <Banner
+            direction={this.scrollPage}
+            page={page}
+            maxPage={Math.ceil(gallery.length / 4)}
+          />
+          <Carousel
+            toggleLiked={this.toggleIsLiked}
+            gallery={gallery}
+            page={page}
+          />
+        </AppContainer>
       </Wrapper>
     );
   }

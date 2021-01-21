@@ -12,10 +12,8 @@ const onePic = () => {
 };
 
 const getPictures = () => {
-  const numOfPics = Math.round(Math.random() * (18 - 12) + 12);
   const picArray = [];
-
-  for (let i = 0; i < numOfPics; i++) {
+  for (let i = 0; i < 12; i++) {
     picArray.push(
       {
         imgId: i,
@@ -23,11 +21,12 @@ const getPictures = () => {
         imgName: faker.internet.userName(),
         imgDescription: faker.name.jobDescriptor(),
         HouseType: faker.lorem.word(),
-        description: faker.random.words(),
+        description: faker.lorem.paragraph(),
         isSuperHost: faker.random.boolean(),
         isLiked: false,
         AverageRating: Math.random() * (5 - 0),
         NumberOfBeds: Math.round(Math.random() * (5 - 1) + 1),
+        NumOfReviews: Math.round(Math.random() * (200 - 42) + 42),
         PricePerNight: Math.round(Math.random() * (350 - 120) + 120),
       });
   }

@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   position: relative;
   right: -20px;
   top: 15px;
-  width: 95%;
+  width: 97%;
   height: 56px;
 `;
 
@@ -15,7 +15,7 @@ const HeaderText = styled.div`
   color: #222222;
   line-height: 26px;
   display: flex;
-  padding: 20px;
+  padding-top: 17px;
   position: relative;
   float: left;
   width: 200px;
@@ -24,8 +24,7 @@ const HeaderText = styled.div`
 `;
 
 const PageIndicator = styled.div`
-  font-family: Circular, -apple-system, system-ui, Roboto, Helvetica Neue, sans-serif !important;
-  font-size: 18px;
+  font-size: 14px;
   position: relative;
   height: auto;
   padding-top: 20px;
@@ -74,7 +73,7 @@ class Banner extends Component {
       <Wrapper>
         <HeaderText> More places to stay </HeaderText>
         <PageScrollButton value="right" onClick={this.handleClick}>
-          <i className="fas fa-chevron-right" />
+          <i className="fas fa-chevron-right" height="25px" width="25px" />
         </PageScrollButton>
         <PageScrollButton value="left" onClick={this.handleClick}>
           <i className="fas fa-chevron-left" />

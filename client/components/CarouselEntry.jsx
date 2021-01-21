@@ -47,20 +47,22 @@ const Img = styled.img`
 `;
 
 const IsSuperHost = styled.span`
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: bold;
   background-color: #f8f8f7;
   line-height: 20px;
   text-align: center;
   position: absolute;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 3px;
   display: inline-flex;
   width: 23%;
   height: 2%;
   z-index: 2;
-  padding: 10px;
-  padding-top: 5px;
-  padding-left: 5px;
+  padding-top: 2px;
+  padding-left: 8px;
+  padding-right: 12px;
+  padding-bottom: 15px;
   margin: 10px;
   box-shadow: black;
 `;
@@ -71,7 +73,7 @@ const IsLiked = styled.div`
   float: right;
   z-index: 2;
   padding: 15px;
-  padding-left: 250px;
+  padding-left: 230px;
 `;
 
 const FilledHeart = styled.div`
@@ -89,15 +91,18 @@ const UnfilledHeart = styled.div`
 const HouseInfo = styled.div`
   line-height: 20px;
   padding-top: 10px;
-  max-width: 100%;
-  text-overflow: ellipsis;
+  max-width: 95%;
+  display: block;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
+
 class CarouselEntry extends Component {
   constructor(props) {
     super(props);
 
-    const { isLiked } = this.props;
+    // const { isLiked } = this.props;
 
     this.state = {
       liked: false,
@@ -106,7 +111,7 @@ class CarouselEntry extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
+  handleClick() {
     const { liked } = this.state;
     this.setState({
       liked: !liked,
@@ -123,11 +128,16 @@ class CarouselEntry extends Component {
       HouseType,
       NumberOfBeds,
       description,
+      NumOfReviews,
     } = entry;
     const { liked } = this.state;
     return (
       <Entry translate={translate}>
-        {isSuperHost ? <IsSuperHost> SUPERHOST</IsSuperHost> : ''}
+        {isSuperHost ? (
+          <IsSuperHost>
+            SUPERHOST
+          </IsSuperHost>
+        ) : ''}
         <IsLiked>
           {liked
             ? (
@@ -140,7 +150,6 @@ class CarouselEntry extends Component {
                 <i className="far fa-heart" onClick={this.handleClick} />
               </UnfilledHeart>
             )}
-
         </IsLiked>
         <ImgContainer>
           <Img src={imgUrl} />
@@ -153,18 +162,19 @@ class CarouselEntry extends Component {
               </StarContainer>
               {` ${AverageRating.toFixed(2)}`}
               <ReviewCount>
-                {` (${Math.round(Math.random() * (200 - 22) + 22)})`}
+                {` (${NumOfReviews})`}
               </ReviewCount>
             </div>
             <div>
               {`${HouseType} · ${NumberOfBeds} beds`}
             </div>
-
-            <div>
+            <span>
               {description}
-            </div>
+            </span>
             <div>
-              {`$${PricePerNight} / night `}
+              <b>{`$${PricePerNight}`}</b>
+              {' '}
+              {'/ night '}
             </div>
           </HouseInfo>
         </EntryInfo>

@@ -7,8 +7,7 @@ mongoose.connect('mongodb://localhost/photo_carousel', {
   useCreateIndex: true,
 });
 
-const connection = mongoose.connection;
-const { Schema } = mongoose;
+const { Schema, connection } = mongoose;
 
 const CarouselSchema = new Schema({
   id: Number,
@@ -21,6 +20,7 @@ const CarouselSchema = new Schema({
   isLiked: Boolean,
   ImgUrls: Array,
   stayList: Array,
+  numOfReviews: Number,
 });
 
 const StayEntry = new Schema({
