@@ -28,7 +28,8 @@ const getPictures = () => {
         NumberOfBeds: Math.round(Math.random() * (5 - 1) + 1),
         NumOfReviews: Math.round(Math.random() * (200 - 42) + 42),
         PricePerNight: Math.round(Math.random() * (350 - 120) + 120),
-      });
+      },
+    );
   }
   return picArray;
 };

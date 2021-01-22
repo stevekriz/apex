@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Banner from './Banner';
 import Carousel from './Carousel';
+import StayModal from './StayModal';
 
 const Wrapper = styled.div`
   background-color: rgba(247, 247, 247, 1);
@@ -21,6 +22,8 @@ const AppContainer = styled.div`
   padding-left: 3%;
 `;
 
+const modalRoot = document.getElementById('modal-root');
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -32,15 +35,26 @@ class App extends Component {
       gallery: [],
       // stayList: [],
       page: 1,
+      showModal: false,
     };
 
     this.getData = this.getData.bind(this);
     this.scrollPage = this.scrollPage.bind(this);
     this.toggleIsLiked = this.toggleIsLiked.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleHide = this.handleHide.bind(this);
   }
 
   componentDidMount() {
     this.getData();
+  }
+
+  handleShow() {
+    this.setState({ showModal: true });
+  }
+
+  handleHide() {
+    this.setState({ showModal: false });
   }
 
   getData() {
@@ -87,22 +101,28 @@ class App extends Component {
   }
 
   render() {
-    const { page, gallery } = this.state;
+    const { page, gallery, showModal } = this.state;
     return (
-      <Wrapper>
-        <AppContainer>
-          <Banner
-            direction={this.scrollPage}
-            page={page}
-            maxPage={Math.ceil(gallery.length / 4)}
-          />
-          <Carousel
-            toggleLiked={this.toggleIsLiked}
-            gallery={gallery}
-            page={page}
-          />
-        </AppContainer>
-      </Wrapper>
+      <>
+        <Wrapper>
+          <AppContainer>
+            <Banner
+              direction={this.scrollPage}
+              page={page}
+              maxPage={Math.ceil(gallery.length / 4)}
+            />
+            <Carousel
+              toggleLiked={this.toggleIsLiked}
+              gallery={gallery}
+              page={page}
+            />
+          </AppContainer>
+        </Wrapper>
+        <button onClick={this.handleShow}>show</button>
+        {showModal ? <StayModal handleHide={this.handleHide} />
+          : null}
+
+      </>
     );
   }
 }

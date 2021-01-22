@@ -71,7 +71,7 @@ class Banner extends Component {
     const { page, maxPage } = this.props;
     return (
       <Wrapper>
-        <HeaderText> More places to stay </HeaderText>
+        <HeaderText>More places to stay</HeaderText>
         <PageScrollButton onClick={() => this.handleClick('right')}>
           <i className="fas fa-chevron-right" height="25px" width="25px" />
         </PageScrollButton>

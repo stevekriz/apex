@@ -26,10 +26,6 @@ const Entry = styled.div`
   transition: transform 0.3s ease-in;
 `;
 
-const EntryInfo = styled.div`
-  position: relative;
-`;
-
 const ImgContainer = styled.div`
   position: relative;
   align-items: center;
@@ -89,6 +85,7 @@ const UnfilledHeart = styled.div`
 `;
 
 const HouseInfo = styled.div`
+  position: relative;
   line-height: 20px;
   padding-top: 10px;
   max-width: 95%;
@@ -154,30 +151,26 @@ class CarouselEntry extends Component {
         <ImgContainer>
           <Img src={imgUrl} />
         </ImgContainer>
-        <EntryInfo>
-          <HouseInfo>
-            <div>
-              <StarContainer>
-                <i className="fas fa-star" />
-              </StarContainer>
-              {` ${AverageRating.toFixed(2)}`}
-              <ReviewCount>
-                {` (${NumOfReviews})`}
-              </ReviewCount>
-            </div>
-            <div>
-              {`${HouseType} · ${NumberOfBeds} beds`}
-            </div>
-            <span>
-              {description}
-            </span>
-            <div>
-              <b>{`$${PricePerNight}`}</b>
-              {' '}
-              {'/ night '}
-            </div>
-          </HouseInfo>
-        </EntryInfo>
+        <HouseInfo>
+          <div>
+            <StarContainer>
+              <i className="fas fa-star" />
+            </StarContainer>
+            {` ${AverageRating.toFixed(2)}`}
+            <ReviewCount>
+              {` (${NumOfReviews})`}
+            </ReviewCount>
+          </div>
+          <div>
+            {`${HouseType} · ${NumberOfBeds} beds`}
+          </div>
+          <span>{description}</span>
+          <div>
+            <b>{`$${PricePerNight}`}</b>
+            {' '}
+            {'/ night '}
+          </div>
+        </HouseInfo>
       </Entry>
     );
   }
