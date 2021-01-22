@@ -62,9 +62,9 @@ class Banner extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
+  handleClick(translate) {
     const { direction } = this.props;
-    direction(e.target.value);
+    direction(translate);
   }
 
   render() {
@@ -72,10 +72,10 @@ class Banner extends Component {
     return (
       <Wrapper>
         <HeaderText> More places to stay </HeaderText>
-        <PageScrollButton value="right" onClick={this.handleClick}>
+        <PageScrollButton onClick={() => this.handleClick('right')}>
           <i className="fas fa-chevron-right" height="25px" width="25px" />
         </PageScrollButton>
-        <PageScrollButton value="left" onClick={this.handleClick}>
+        <PageScrollButton onClick={() => this.handleClick('left')}>
           <i className="fas fa-chevron-left" />
         </PageScrollButton>
         <PageIndicator>{`${page} / ${maxPage}`}</PageIndicator>
