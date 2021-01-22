@@ -48,7 +48,6 @@ const getListData = () => {
 
 const SampleData = () => {
   for (let i = 1; i <= 100; i++) {
-
     const imgSet = getPictures();
     const staySet = getListData();
     const newCarousel = new db.CarouselModel({

@@ -79,9 +79,9 @@ class App extends Component {
     }
   }
 
-  toggleIsLiked(id) {
+  toggleIsLiked(id, data) {
     const { dataId } = this.state;
-    axios.patch(`/api/img_carousel/${dataId}/${id}`)
+    axios.patch(`/api/img_carousel/${dataId}/${id}`, { data })
       .then(this.getData)
       .catch((err) => { throw err; });
   }
