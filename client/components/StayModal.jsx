@@ -54,15 +54,27 @@ const StayListContainer = styled.div`
   padding-right: 16px;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: red;
+  border-radius: 12px;
 `;
 
+const NewStayButton = styled.button`
+  cursor: pointer;
+  position: relative;
+  touch-action: manipulation;
+  border-radius: 0px;
+  outline: none;
+  background: transparent;
+  height: 100%;
+  width 100%;
+  border: none;
+  display: block;
+  text-align: center;
+`;
 const CreateStayContainer = styled.div`
   display: inline-block;
   width: 512px;
   height 64px;
   padding: 12px;
-  background-color: green;
 `;
 const HeaderText = styled.div`
   position: relative;
@@ -109,8 +121,27 @@ const PlusSymbol = styled.svg`
 `;
 
 const PlusSymbolContainer = styled.div`
-  display: block;
+  display: flex;
+  width: 64px;
+  height 64px;
+  align-items: center;
+  justify-content: center;
+  background: rgb(34, 34, 34);
+  border-radius: 4px;
 
+`;
+
+const CreateNewListText = styled.div`
+  position: absolute;
+  top: 27px;
+  left: 17%;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  color: rgb(34, 34, 34);
+  margin-bottom: 4px;
+  border-radius: 8px;
 `;
 
 class StayModal extends Component {
@@ -170,11 +201,16 @@ class StayModal extends Component {
           </Header>
           <StayListContainer>
             <CreateStayContainer>
-              <PlusSymbolContainer>
-                <PlusSymbol>
-                  <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
-                </PlusSymbol>
-              </PlusSymbolContainer>
+              <NewStayButton>
+                <PlusSymbolContainer>
+                  <PlusSymbol>
+                    <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
+                  </PlusSymbol>
+                </PlusSymbolContainer>
+                <CreateNewListText>
+                  Create a new list
+                </CreateNewListText>
+              </NewStayButton>
             </CreateStayContainer>
           </StayListContainer>
         </ModalContainer>
