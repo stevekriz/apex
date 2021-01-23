@@ -65,27 +65,40 @@ const IsSuperHost = styled.span`
   box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
 `;
 
-const IsLiked = styled.div`
+const IsLikedContainer = styled.div`
   position: absolute;
   display: inline-flex;
   float: right;
   z-index: 2;
-  padding: 15px;
-  padding-left: 230px;
+  height: 34px;
+  width: 32px;
+  right: 18px;
+  top: 25px;
 `;
 
-const FilledHeart = styled.div`
-  height: 16px;
-  width: 16px;
-  color: #e62051;
+const IsLikedButton = styled.button`
+  cursor: pointer;
+  position: relative;
+  touch-action: manipulation;
+  border-radius: 0px;
+  outline: none;
+  background: transparent;
+  height: 100%;
+  width 100%;
+  border: none;
+  display: block;
 `;
 
-const UnfilledHeart = styled.div`
-  height: 16px;
-  width: 16px;
-  color: white;
+const IsLikedSVG = styled.svg`
+  display: block;
+  fill: ${(props) => (props.isClicked ? 'rgb(255, 56, 92)' : 'rgba(0, 0, 0, 0.5)')};
+  height: 24px;
+  width: 24px;
+  stroke:
+  rgb(255, 255, 255);
+  stroke-width: 2;
+  overflow: visible;
 `;
-
 const HouseInfo = styled.div`
   position: relative;
   line-height: 20px;
@@ -132,24 +145,21 @@ class CarouselEntry extends Component {
     const { liked } = this.state;
     return (
       <Entry translate={translate}>
-        {isSuperHost ? (
-          <IsSuperHost>
-            SUPERHOST
-          </IsSuperHost>
-        ) : ''}
-        <IsLiked>
-          {liked
-            ? (
-              <FilledHeart>
-                <i className="fas fa-heart" onClick={this.handleClick} />
-              </FilledHeart>
-            )
-            : (
-              <UnfilledHeart>
-                <i className="far fa-heart" onClick={this.handleClick} />
-              </UnfilledHeart>
-            )}
-        </IsLiked>
+        {isSuperHost ? (<IsSuperHost>SUPERHOST</IsSuperHost>) : ''}
+        <IsLikedContainer>
+          <IsLikedButton onClick={this.handleClick}>
+            <IsLikedSVG
+              isClicked={liked}
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            >
+              <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z" />
+            </IsLikedSVG>
+          </IsLikedButton>
+        </IsLikedContainer>
         <ImgContainer>
           <Img src={imgUrl} />
         </ImgContainer>
