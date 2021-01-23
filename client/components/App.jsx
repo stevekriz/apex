@@ -20,6 +20,9 @@ const AppContainer = styled.div`
   max-width: 1200px;
   height: 400px;
   padding-left: 3%;
+  align-items: center;
+  justify-content: center;
+
 `;
 
 const modalRoot = document.getElementById('modal-root');

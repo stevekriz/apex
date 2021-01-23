@@ -45,7 +45,9 @@ const Img = styled.img`
 const IsSuperHost = styled.span`
   font-size: 11px;
   font-weight: bold;
-  background-color: #f8f8f7;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.95);
+  color: rgb(34, 34, 34);
   line-height: 20px;
   text-align: center;
   position: absolute;
@@ -60,7 +62,7 @@ const IsSuperHost = styled.span`
   padding-right: 12px;
   padding-bottom: 15px;
   margin: 10px;
-  box-shadow: black;
+  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
 `;
 
 const IsLiked = styled.div`
