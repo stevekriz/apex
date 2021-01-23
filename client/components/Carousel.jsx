@@ -31,12 +31,17 @@ class Carousel extends Component {
   }
 
   render() {
-    const { toggleLiked, page, gallery } = this.props;
+    const {
+      toggleLiked, page, gallery, isLiked, isUnliked, stayList
+    } = this.props;
     return (
       <CarouselContainer>
         <TheCarousel>
           {gallery.map((entry) => (
             <CarouselEntry
+              stayList={stayList}
+              isLiked={isLiked}
+              isUnliked={isUnliked}
               toggleLiked={toggleLiked}
               translate={page}
               key={entry.imgId}

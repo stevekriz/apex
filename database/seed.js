@@ -41,7 +41,7 @@ const getListData = () => {
     listArray.push({
       stayId: i,
       stayName: faker.random.word(),
-      stayPic: faker.random.image(),
+      stayPic: onePic(),
     });
   }
   return listArray;

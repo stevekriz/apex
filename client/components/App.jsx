@@ -25,8 +25,6 @@ const AppContainer = styled.div`
 
 `;
 
-const modalRoot = document.getElementById('modal-root');
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +34,7 @@ class App extends Component {
     this.state = {
       dataId: id,
       gallery: [],
-      // stayList: [],
+      stayList: [],
       page: 1,
       showModal: false,
     };
@@ -65,7 +63,7 @@ class App extends Component {
     axios.get(`/api/img_carousel/${dataId}`)
       .then((response) => this.setState({
         gallery: response.data[0].ImgUrls,
-        // stayList: response.data[0].stayList,
+        stayList: response.data[0].stayList,
       }))
       .catch((error) => { throw error; });
   }
@@ -96,6 +94,7 @@ class App extends Component {
     }
   }
 
+  // FOR BACKEND
   toggleIsLiked(id, data) {
     const { dataId } = this.state;
     axios.patch(`/api/img_carousel/${dataId}/${id}`, { data })
@@ -104,7 +103,9 @@ class App extends Component {
   }
 
   render() {
-    const { page, gallery, showModal } = this.state;
+    const {
+      page, gallery, showModal, stayList,
+    } = this.state;
     return (
       <>
         <Wrapper>
@@ -115,16 +116,21 @@ class App extends Component {
               maxPage={Math.ceil(gallery.length / 4)}
             />
             <Carousel
-              toggleLiked={this.toggleIsLiked}
+              stayList={stayList}
+              isLiked={this.handleShow}
+              isUnliked={this.handleHide}
+              toggleLiked={this.toggleIsLiked} // FOR BACKEND
               gallery={gallery}
               page={page}
             />
           </AppContainer>
         </Wrapper>
-        <button onClick={this.handleShow}>show</button>
-        {showModal ? <StayModal handleHide={this.handleHide} />
-          : null}
-
+        {showModal ? (
+          <StayModal
+            handleHide={this.handleHide}
+            stayList={stayList}
+          />
+        ) : null}
       </>
     );
   }

@@ -131,7 +131,7 @@ class CarouselEntry extends Component {
   }
 
   render() {
-    const { entry, translate } = this.props;
+    const { entry, translate, isLiked } = this.props;
     const {
       PricePerNight,
       isSuperHost,
@@ -147,7 +147,9 @@ class CarouselEntry extends Component {
       <Entry translate={translate}>
         {isSuperHost ? (<IsSuperHost>SUPERHOST</IsSuperHost>) : ''}
         <IsLikedContainer>
-          <IsLikedButton onClick={this.handleClick}>
+          <IsLikedButton
+            onClick={() => isLiked()}
+          >
             <IsLikedSVG
               isClicked={liked}
               viewBox="0 0 32 32"

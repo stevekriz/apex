@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>8/12</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>8/12</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -144,8 +144,7 @@
 <a name='L85'></a><a href='#L85'>85</a>
 <a name='L86'></a><a href='#L86'>86</a>
 <a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -171,7 +170,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -220,10 +218,10 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -240,7 +238,7 @@ const Wrapper = styled.div`
   position: relative;
   right: -20px;
   top: 15px;
-  width: 95%;
+  width: 97%;
   height: 56px;
 `;
 &nbsp;
@@ -250,7 +248,7 @@ const HeaderText = styled.div`
   color: #222222;
   line-height: 26px;
   display: flex;
-  padding: 20px;
+  padding-top: 17px;
   position: relative;
   float: left;
   width: 200px;
@@ -259,8 +257,7 @@ const HeaderText = styled.div`
 `;
 &nbsp;
 const PageIndicator = styled.div`
-  font-family: Circular, -apple-system, system-ui, Roboto, Helvetica Neue, sans-serif !important;
-  font-size: 18px;
+  font-size: 14px;
   position: relative;
   height: auto;
   padding-top: 20px;
@@ -298,20 +295,20 @@ class Banner extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  ha</span>ndleClick(e) {
+<span class="fstat-no" title="function not covered" >  ha</span>ndleClick(translate) {
     const { direction } = <span class="cstat-no" title="statement not covered" >this.props;</span>
-<span class="cstat-no" title="statement not covered" >    direction(e.target.value);</span>
+<span class="cstat-no" title="statement not covered" >    direction(translate);</span>
   }
 &nbsp;
   render() {
     const { page, maxPage } = this.props;
     return (
       &lt;Wrapper&gt;
-        &lt;HeaderText&gt; More places to stay &lt;/HeaderText&gt;
-        &lt;PageScrollButton value="right" onClick={this.handleClick}&gt;
-          &lt;i className="fas fa-chevron-right" /&gt;
+        &lt;HeaderText&gt;More places to stay&lt;/HeaderText&gt;
+        &lt;PageScrollButton onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.handleClick('right')}</span>&gt;
+          &lt;i className="fas fa-chevron-right" height="25px" width="25px" /&gt;
         &lt;/PageScrollButton&gt;
-        &lt;PageScrollButton value="left" onClick={this.handleClick}&gt;
+        &lt;PageScrollButton onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.handleClick('left')}</span>&gt;
           &lt;i className="fas fa-chevron-left" /&gt;
         &lt;/PageScrollButton&gt;
         &lt;PageIndicator&gt;{`${page} / ${maxPage}`}&lt;/PageIndicator&gt;
@@ -328,7 +325,7 @@ export default Banner;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jan 21 2021 09:37:01 GMT-0800 (Pacific Standard Time)
+                at Fri Jan 22 2021 22:50:18 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>

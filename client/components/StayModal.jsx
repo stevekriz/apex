@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import StayListEntry from './StayListEntry';
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -46,7 +47,8 @@ const Header = styled.div`
 
 const StayListContainer = styled.div`
   position: relative;
-  display: inline-block
+  display: inline-block;
+  flex-direction: column;
   width: 100%;
   height: 330px;
   overflowY: hidden;
@@ -55,6 +57,7 @@ const StayListContainer = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 12px;
+  overflow-y: auto;
 `;
 
 const NewStayButton = styled.button`
@@ -69,12 +72,17 @@ const NewStayButton = styled.button`
   border: none;
   display: block;
   text-align: center;
+  padding: 0px;
 `;
 const CreateStayContainer = styled.div`
   display: inline-block;
   width: 512px;
   height 64px;
   padding: 12px;
+  border-radius: 4px;
+  &:hover {
+    background: rgb(247, 247, 247);
+  }
 `;
 const HeaderText = styled.div`
   position: relative;
@@ -100,6 +108,10 @@ const HideButton = styled.button`
   width: 32px;
   outline: none;
   border: none;
+  cursor: pointer;
+  &:hover {
+    background: rgb(247, 247, 247);
+  }
 `;
 
 const Xsymbol = styled.svg`
@@ -128,7 +140,6 @@ const PlusSymbolContainer = styled.div`
   justify-content: center;
   background: rgb(34, 34, 34);
   border-radius: 4px;
-
 `;
 
 const CreateNewListText = styled.div`
@@ -148,15 +159,9 @@ class StayModal extends Component {
   constructor(props) {
     super(props);
 
-    const { stayList } = this.props;
-    this.state = {
-      stayList: [],
-      isHovered: false,
-
-    };
+    this.state = {};
 
     this.el = document.createElement('div');
-    this.onHovered = this.onHovered.bind(this);
   }
 
   componentDidMount() {
@@ -167,22 +172,14 @@ class StayModal extends Component {
     modalRoot.removeChild(this.el);
   }
 
-  onHovered(state) {
-    this.setState({
-      isHovered: state,
-    });
-  }
-
   render() {
-    const { handleHide } = this.props;
+    const { handleHide, stayList } = this.props;
     return ReactDOM.createPortal(
       <>
         <BackDrop onClick={handleHide} />
         <ModalContainer>
           <Header>
             <HideButton
-              onMouseEnter={() => this.onHovered(true)}
-              onMouseLeave={() => this.onHovered(false)}
               onClick={handleHide}
             >
               <Xsymbol
@@ -212,6 +209,7 @@ class StayModal extends Component {
                 </CreateNewListText>
               </NewStayButton>
             </CreateStayContainer>
+            {stayList.map((stay) => <StayListEntry key={stay.stayId} stay={stay} />)}
           </StayListContainer>
         </ModalContainer>
       </>,
