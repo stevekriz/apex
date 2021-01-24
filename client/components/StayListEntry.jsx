@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const StayEntryContainer = styled.div`
+  cursor: pointer;
   font-family: Nunito-sans;
   display: inline-flex;
   flex-wrap: wrap;
@@ -99,13 +100,29 @@ class StayListEntry extends Component {
     this.state = {
       count: 1,
     };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { toggleLiked, handleHide } = this.props;
+    const { count } = this.state;
+    this.setState({
+      count: count + 1,
+    });
+    toggleLiked();
+    handleHide();
+
+
+
+    // close the modal
   }
 
   render() {
     const { stayPic, stayName } = this.props.stay;
     const { count } = this.state;
     return (
-      <StayEntryContainer>
+      <StayEntryContainer onClick={this.handleClick}>
         <StayEntryButton>
           <StayImageContainer>
             <Img src={stayPic} />

@@ -32,7 +32,7 @@ class Carousel extends Component {
 
   render() {
     const {
-      toggleLiked, page, gallery, isLiked, isUnliked, stayList
+      toggleLiked, page, gallery, showModal, hideModal, stayList
     } = this.props;
     return (
       <CarouselContainer>
@@ -40,11 +40,11 @@ class Carousel extends Component {
           {gallery.map((entry) => (
             <CarouselEntry
               stayList={stayList}
-              isLiked={isLiked}
-              isUnliked={isUnliked}
+              showModal={showModal}
+              hideModal={hideModal}
               toggleLiked={toggleLiked}
               translate={page}
-              key={entry.imgId}
+              key={entry._id}
               entry={entry}
             />
           ))}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import StayModal from './StayModal';
 
 const StarContainer = styled.span`
   width: 20px;
@@ -114,24 +115,49 @@ class CarouselEntry extends Component {
   constructor(props) {
     super(props);
 
-    // const { isLiked } = this.props;
-
     this.state = {
       liked: false,
+      showModal: false,
     };
 
+    this.handleShow = this.handleShow.bind(this);
+    this.handleHide = this.handleHide.bind(this);
+    this.toggleLiked = this.toggleLiked.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.toggleNotLiked = this.toggleNotLiked.bind(this);
   }
 
   handleClick() {
     const { liked } = this.state;
-    this.setState({
-      liked: !liked,
-    });
+    if (!liked) {
+      this.handleShow();
+    } else {
+      this.toggleNotLiked();
+    }
   }
 
+  handleShow() {
+    this.setState({ showModal: true });
+  }
+
+  handleHide() {
+    this.setState({ showModal: false });
+  }
+
+  toggleLiked() {
+    const { liked } = this.state;
+    this.setState({ liked: true });
+  }
+
+  toggleNotLiked() {
+    const { liked } = this.state;
+    this.setState({ liked: false });
+  }
+
+
+
   render() {
-    const { entry, translate, isLiked } = this.props;
+    const { entry, translate } = this.props;
     const {
       PricePerNight,
       isSuperHost,
@@ -142,13 +168,14 @@ class CarouselEntry extends Component {
       description,
       NumOfReviews,
     } = entry;
-    const { liked } = this.state;
+    const { liked, showModal } = this.state;
+    const { stayList } = this.props;
     return (
       <Entry translate={translate}>
         {isSuperHost ? (<IsSuperHost>SUPERHOST</IsSuperHost>) : ''}
         <IsLikedContainer>
           <IsLikedButton
-            onClick={() => isLiked()}
+            onClick={this.handleClick}
           >
             <IsLikedSVG
               isClicked={liked}
@@ -170,7 +197,7 @@ class CarouselEntry extends Component {
             <StarContainer>
               <i className="fas fa-star" />
             </StarContainer>
-            {` ${AverageRating.toFixed(2)}`}
+            {` ${AverageRating}`}
             <ReviewCount>
               {` (${NumOfReviews})`}
             </ReviewCount>
@@ -185,6 +212,13 @@ class CarouselEntry extends Component {
             {'/ night '}
           </div>
         </HouseInfo>
+        {showModal ? (
+          <StayModal
+            toggleLiked={this.toggleLiked}
+            handleHide={this.handleHide}
+            stayList={stayList}
+          />
+        ) : null}
       </Entry>
     );
   }

@@ -3,7 +3,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Banner from './Banner';
 import Carousel from './Carousel';
-import StayModal from './StayModal';
 
 const Wrapper = styled.div`
   background-color: rgba(247, 247, 247, 1);
@@ -29,33 +28,21 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    const { id } = props;
+    const { _id } = props;
 
     this.state = {
-      dataId: id,
+      dataId: _id,
       gallery: [],
       stayList: [],
       page: 1,
-      showModal: false,
     };
 
     this.getData = this.getData.bind(this);
     this.scrollPage = this.scrollPage.bind(this);
-    this.toggleIsLiked = this.toggleIsLiked.bind(this);
-    this.handleShow = this.handleShow.bind(this);
-    this.handleHide = this.handleHide.bind(this);
   }
 
   componentDidMount() {
     this.getData();
-  }
-
-  handleShow() {
-    this.setState({ showModal: true });
-  }
-
-  handleHide() {
-    this.setState({ showModal: false });
   }
 
   getData() {
@@ -65,7 +52,7 @@ class App extends Component {
         gallery: response.data[0].ImgUrls,
         stayList: response.data[0].stayList,
       }))
-      .catch((error) => { throw error; });
+      .catch((err) => { throw err; });
   }
 
   scrollPage(direction) {
@@ -94,14 +81,6 @@ class App extends Component {
     }
   }
 
-  // FOR BACKEND
-  toggleIsLiked(id, data) {
-    const { dataId } = this.state;
-    axios.patch(`/api/img_carousel/${dataId}/${id}`, { data })
-      .then(this.getData)
-      .catch((err) => { throw err; });
-  }
-
   render() {
     const {
       page, gallery, showModal, stayList,
@@ -117,20 +96,11 @@ class App extends Component {
             />
             <Carousel
               stayList={stayList}
-              isLiked={this.handleShow}
-              isUnliked={this.handleHide}
-              toggleLiked={this.toggleIsLiked} // FOR BACKEND
               gallery={gallery}
               page={page}
             />
           </AppContainer>
         </Wrapper>
-        {showModal ? (
-          <StayModal
-            handleHide={this.handleHide}
-            stayList={stayList}
-          />
-        ) : null}
       </>
     );
   }

@@ -173,7 +173,7 @@ class StayModal extends Component {
   }
 
   render() {
-    const { handleHide, stayList } = this.props;
+    const { handleHide, stayList, toggleLiked } = this.props;
     return ReactDOM.createPortal(
       <>
         <BackDrop onClick={handleHide} />
@@ -209,7 +209,15 @@ class StayModal extends Component {
                 </CreateNewListText>
               </NewStayButton>
             </CreateStayContainer>
-            {stayList.map((stay) => <StayListEntry key={stay.stayId} stay={stay} />)}
+            {stayList.map((stay) => (
+              <StayListEntry
+                handleHide={handleHide}
+                toggleLiked={toggleLiked}
+                key={stay.stayId}
+                stay={stay}
+              />
+            ))}
+
           </StayListContainer>
         </ModalContainer>
       </>,

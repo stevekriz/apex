@@ -10,17 +10,9 @@ mongoose.connect('mongodb://localhost/photo_carousel', {
 const { Schema, connection } = mongoose;
 
 const CarouselSchema = new Schema({
-  id: Number,
-  AverageRating: String,
-  HouseType: String,
-  NumberOfBeds: Number,
-  PricePerNight: String,
-  description: String,
-  isSuperHost: Boolean,
-  isLiked: Boolean,
-  ImgUrls: Array,
+  _id: Number,
   stayList: Array,
-  numOfReviews: Number,
+  ImgUrls: Array,
 });
 
 const StayEntry = new Schema({
