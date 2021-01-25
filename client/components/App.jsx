@@ -36,6 +36,7 @@ class App extends Component {
       gallery: [],
       stayList: [],
       page: 1,
+      isLoading: true,
     };
 
     this.getData = this.getData.bind(this);
@@ -52,6 +53,7 @@ class App extends Component {
       .then((response) => this.setState({
         gallery: response.data[0].ImgUrls,
         stayList: response.data[0].stayList,
+        isLoading: false,
       }))
       .catch((err) => { throw err; });
   }
@@ -84,8 +86,15 @@ class App extends Component {
 
   render() {
     const {
-      page, gallery, stayList,
+      page, gallery, stayList, isLoading,
     } = this.state;
+
+    if (isLoading) {
+      return (
+        <Wrapper>...Loading</Wrapper>
+      );
+    }
+
     return (
       <>
         <Wrapper>

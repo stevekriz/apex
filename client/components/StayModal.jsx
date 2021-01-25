@@ -218,7 +218,6 @@ class StayModal extends Component {
                 stay={stay}
               />
             ))}
-
           </StayListContainer>
         </ModalContainer>
       </>,
