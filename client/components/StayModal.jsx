@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import StayListEntry from './StayListEntry';
 
-const modalRoot = document.getElementById('modal-root');
+const modalRoot = document.getElementById('img_carousel');
 
 const BackDrop = styled.div`
   font-family: Nunito Sans;
@@ -227,3 +228,9 @@ class StayModal extends Component {
 }
 
 export default StayModal;
+
+StayModal.propTypes = {
+  handleHide: PropTypes.func.isRequired,
+  stayList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  toggleLiked: PropTypes.func.isRequired,
+};

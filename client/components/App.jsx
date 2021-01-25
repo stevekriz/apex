@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Banner from './Banner';
 import Carousel from './Carousel';
 
@@ -83,7 +84,7 @@ class App extends Component {
 
   render() {
     const {
-      page, gallery, showModal, stayList,
+      page, gallery, stayList,
     } = this.state;
     return (
       <>
@@ -107,3 +108,7 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  _id: PropTypes.string.isRequired,
+};

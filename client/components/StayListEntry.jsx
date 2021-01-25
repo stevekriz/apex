@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StayEntryContainer = styled.div`
   cursor: pointer;
@@ -112,14 +113,11 @@ class StayListEntry extends Component {
     });
     toggleLiked();
     handleHide();
-
-
-
-    // close the modal
   }
 
   render() {
-    const { stayPic, stayName } = this.props.stay;
+    const { stay } = this.props;
+    const { stayPic, stayName } = stay;
     const { count } = this.state;
     return (
       <StayEntryContainer onClick={this.handleClick}>
@@ -145,3 +143,13 @@ class StayListEntry extends Component {
 }
 
 export default StayListEntry;
+
+StayListEntry.propTypes = {
+  toggleLiked: PropTypes.func.isRequired,
+  handleHide: PropTypes.func.isRequired,
+  stay: PropTypes.shape({
+    stayName: PropTypes.string.isRequired,
+    stayPic: PropTypes.string.isRequired,
+  }).isRequired,
+
+};

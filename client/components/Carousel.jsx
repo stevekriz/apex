@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import CarouselEntry from './CarouselEntry';
 
 const TheCarousel = styled.div`
@@ -32,7 +33,7 @@ class Carousel extends Component {
 
   render() {
     const {
-      toggleLiked, page, gallery, showModal, hideModal, stayList
+      page, gallery, stayList,
     } = this.props;
     return (
       <CarouselContainer>
@@ -40,11 +41,8 @@ class Carousel extends Component {
           {gallery.map((entry) => (
             <CarouselEntry
               stayList={stayList}
-              showModal={showModal}
-              hideModal={hideModal}
-              toggleLiked={toggleLiked}
-              translate={page}
-              key={entry._id}
+              page={page}
+              key={entry.id}
               entry={entry}
             />
           ))}
@@ -55,3 +53,9 @@ class Carousel extends Component {
 }
 
 export default Carousel;
+
+Carousel.propTypes = {
+  page: PropTypes.number.isRequired,
+  gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
+  stayList: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

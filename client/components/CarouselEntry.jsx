@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import StayModal from './StayModal';
 
 const StarContainer = styled.span`
@@ -23,7 +24,7 @@ const Entry = styled.div`
   cursor: pointer;
   padding-top: 20px;
   margin: 10px;
-  transform: translateX(-${(props) => (props.translate - 1) * 1187}px);
+  transform: translateX(-${(props) => (props.page - 1) * 1187}px);
   transition: transform 0.3s ease-in;
 `;
 
@@ -145,19 +146,15 @@ class CarouselEntry extends Component {
   }
 
   toggleLiked() {
-    const { liked } = this.state;
     this.setState({ liked: true });
   }
 
   toggleNotLiked() {
-    const { liked } = this.state;
     this.setState({ liked: false });
   }
 
-
-
   render() {
-    const { entry, translate } = this.props;
+    const { entry, page, stayList } = this.props;
     const {
       PricePerNight,
       isSuperHost,
@@ -169,9 +166,8 @@ class CarouselEntry extends Component {
       NumOfReviews,
     } = entry;
     const { liked, showModal } = this.state;
-    const { stayList } = this.props;
     return (
-      <Entry translate={translate}>
+      <Entry page={page}>
         {isSuperHost ? (<IsSuperHost>SUPERHOST</IsSuperHost>) : ''}
         <IsLikedContainer>
           <IsLikedButton
@@ -225,3 +221,18 @@ class CarouselEntry extends Component {
 }
 
 export default CarouselEntry;
+
+CarouselEntry.propTypes = {
+  page: PropTypes.number.isRequired,
+  stayList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  entry: PropTypes.shape({
+    PricePerNight: PropTypes.number.isRequired,
+    isSuperHost: PropTypes.bool.isRequired,
+    imgUrl: PropTypes.string.isRequired,
+    AverageRating: PropTypes.string.isRequired,
+    HouseType: PropTypes.string.isRequired,
+    NumberOfBeds: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    NumOfReviews: PropTypes.number.isRequired,
+  }).isRequired,
+};

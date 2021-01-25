@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   position: relative;
@@ -85,3 +86,9 @@ class Banner extends Component {
 }
 
 export default Banner;
+
+Banner.propTypes = {
+  direction: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  maxPage: PropTypes.number.isRequired,
+};

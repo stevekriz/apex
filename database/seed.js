@@ -16,7 +16,7 @@ const getPictures = () => {
   for (let i = 0; i < 12; i++) {
     picArray.push(
       {
-        _id: i,
+        id: i,
         imgUrl: onePic(),
         imgName: faker.internet.userName(),
         imgDescription: faker.name.jobDescriptor(),
@@ -54,6 +54,7 @@ const SampleData = () => {
 
     const newCarousel = new db.CarouselModel({
       _id: i,
+      id: i,
       ImgUrls: imgSet,
       stayList: staySet,
     });
