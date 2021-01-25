@@ -1,10 +1,9 @@
-const express = require('express');
 const db = require('../../database/index.js');
 
 const getPictures = (params, cb) => {
-  db.CarouselModel.find({ id: params.id }, cb);
+  db.CarouselModel.find({ _id: params.id }, cb);
 };
 
 module.exports = {
-  getPictures
+  getPictures,
 };

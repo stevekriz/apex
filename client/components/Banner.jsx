@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   position: relative;
   right: -20px;
   top: 15px;
-  width: 95%;
+  width: 97%;
   height: 56px;
 `;
 
 const HeaderText = styled.div`
-  font-family: Circular, -apple-system, system-ui, Roboto, Helvetica Neue, sans-serif !important;
   font-weight: 600;
   font-size: 22px;
   color: #222222;
   line-height: 26px;
   display: flex;
-  padding: 20px;
+  padding-top: 17px;
   position: relative;
   float: left;
   width: 200px;
@@ -25,8 +25,7 @@ const HeaderText = styled.div`
 `;
 
 const PageIndicator = styled.div`
-  font-family: Circular, -apple-system, system-ui, Roboto, Helvetica Neue, sans-serif !important;
-  font-size: 18px;
+  font-size: 14px;
   position: relative;
   height: auto;
   padding-top: 20px;
@@ -35,7 +34,7 @@ const PageIndicator = styled.div`
   float: right;
   up: -20px;
   left: -20px;
-`;
+  `;
 
 const PageScrollButton = styled.button`
   background-color: rgba(255, 255, 255, 0.9);
@@ -54,6 +53,7 @@ const PageScrollButton = styled.button`
   line-height: normal;
   height: 32px;
   width; 25px;
+  outline: none;
 `;
 
 class Banner extends Component {
@@ -63,22 +63,32 @@ class Banner extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    this.props.direction(e.target.value);
+  handleClick(translate) {
+    const { direction } = this.props;
+    direction(translate);
   }
 
   render() {
+    const { page, maxPage } = this.props;
     return (
       <Wrapper>
-        <HeaderText> More places to stay </HeaderText>
-        <PageScrollButton value="right" onClick={this.handleClick}> R </PageScrollButton>
-        <PageScrollButton value="left"onClick={this.handleClick}> L </PageScrollButton>
-        <PageIndicator> {this.props.page}/{this.props.maxPage} </PageIndicator>
+        <HeaderText>More places to stay</HeaderText>
+        <PageScrollButton onClick={() => this.handleClick('right')}>
+          <i className="fas fa-chevron-right" height="25px" width="25px" />
+        </PageScrollButton>
+        <PageScrollButton onClick={() => this.handleClick('left')}>
+          <i className="fas fa-chevron-left" />
+        </PageScrollButton>
+        <PageIndicator>{`${page} / ${maxPage}`}</PageIndicator>
       </Wrapper>
-
     );
   }
 }
 
-
 export default Banner;
+
+Banner.propTypes = {
+  direction: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  maxPage: PropTypes.number.isRequired,
+};

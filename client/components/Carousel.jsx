@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import CarouselEntry from './CarouselEntry';
 
 const TheCarousel = styled.div`
   box-sizing: border-box;
-  border-style: solid;
   width: 100%;
   height: 350px;
   right: -20px;
@@ -32,12 +32,20 @@ class Carousel extends Component {
   }
 
   render() {
+    const {
+      page, gallery, stayList,
+    } = this.props;
     return (
       <CarouselContainer>
         <TheCarousel>
-          {this.props.gallery.map((entry) => {
-            return <CarouselEntry translate={this.props.page} key={entry.imgId} entry={entry}/>
-          })}
+          {gallery.map((entry) => (
+            <CarouselEntry
+              stayList={stayList}
+              page={page}
+              key={entry.id}
+              entry={entry}
+            />
+          ))}
         </TheCarousel>
       </CarouselContainer>
     );
@@ -45,3 +53,9 @@ class Carousel extends Component {
 }
 
 export default Carousel;
+
+Carousel.propTypes = {
+  page: PropTypes.number.isRequired,
+  gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
+  stayList: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

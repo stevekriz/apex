@@ -1,5 +1,3 @@
-const express = require('express');
-
 const models = require('../models/imageModels.js');
 
 const getPictures = (req, res) => {
@@ -13,5 +11,5 @@ const getPictures = (req, res) => {
 };
 
 module.exports = {
-  getPictures
+  getPictures,
 };

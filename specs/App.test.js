@@ -1,5 +1,5 @@
 import {
-  configure, mount, render, shallow,
+  configure, mount, render,
 } from 'enzyme';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -9,7 +9,7 @@ import Carousel from '../client/components/Carousel';
 
 configure({ adapter: new Adapter() });
 
-describe('App />', () => {
+describe('<App />', () => {
   const DATA_ID = 5;
   const component = mount(<App id={DATA_ID} />);
 
@@ -56,9 +56,3 @@ describe('<Carousel />', () => {
     expect(component).toBeDefined();
   });
 });
-
-// describe('<Banner />', () => {
-//   const wrapper = mount(<Banner />);
-
-//   it('should exist', () => expect(wrapper.exists()).to.equal(true));
-// });
