@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   position: relative;
-  right: -20px;
   top: 15px;
   width: 97%;
   height: 56px;
@@ -26,11 +25,12 @@ const HeaderText = styled.div`
 
 const PageIndicator = styled.div`
   font-size: 14px;
+
   position: relative;
-  height: auto;
   padding-top: 20px;
   padding-bottom: 20px;
-  width: auto;
+  width: 32px;
+  height: auto;
   float: right;
   up: -20px;
   left: -20px;
@@ -52,10 +52,23 @@ const PageScrollButton = styled.button`
   float: right;
   line-height: normal;
   height: 32px;
-  width; 25px;
+  width: 32px;
   outline: none;
 `;
 
+const LeftButtonSVG = styled.svg`
+  height: 10px;
+  width: 10px;
+  display: block;
+  fill: currentcolor;
+`;
+
+const RightButtonSVG = styled.svg`
+  height: 10px;
+  width: 10px;
+  display: block;
+  fill: currentcolor;
+`;
 class Banner extends Component {
   constructor(props) {
     super(props);
@@ -74,10 +87,20 @@ class Banner extends Component {
       <Wrapper>
         <HeaderText>More places to stay</HeaderText>
         <PageScrollButton onClick={() => this.handleClick('right')}>
-          <i className="fas fa-chevron-right" height="25px" width="25px" />
+          <RightButtonSVG viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
+            <path
+              d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z"
+              fillRule="evenodd"
+            />
+          </RightButtonSVG>
         </PageScrollButton>
         <PageScrollButton onClick={() => this.handleClick('left')}>
-          <i className="fas fa-chevron-left" />
+          <LeftButtonSVG viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
+            <path
+              d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z"
+              fillRule="evenodd"
+            />
+          </LeftButtonSVG>
         </PageScrollButton>
         <PageIndicator>{`${page} / ${maxPage}`}</PageIndicator>
       </Wrapper>

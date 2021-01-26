@@ -6,9 +6,10 @@ import Banner from './Banner';
 import Carousel from './Carousel';
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
   background-color: rgba(247, 247, 247, 1);
   height: auto;
-  width: auto;
 `;
 const AppContainer = styled.div`
   font-family: Nunito Sans;
@@ -19,7 +20,6 @@ const AppContainer = styled.div`
   width: 250%;
   max-width: 1200px;
   height: 400px;
-  padding-left: 3%;
   align-items: center;
   justify-content: center;
 

@@ -7,7 +7,6 @@ const TheCarousel = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 350px;
-  right: -20px;
   overflow-x: auto;
   white-space: nowrap;
   &::-webkit-scrollbar {
