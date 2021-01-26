@@ -44,7 +44,7 @@ const Img = styled.img`
   width: 100%;
 `;
 
-const IsSuperHost = styled.span`
+const IsSuperHost = styled.div`
   font-size: 11px;
   font-weight: bold;
   border: 0.5px solid rgba(0, 0, 0, 0.2);
@@ -56,13 +56,13 @@ const IsSuperHost = styled.span`
   background-color: white;
   border-radius: 3px;
   display: inline-flex;
-  width: 23%;
+  width: 32%;
   height: 2%;
   z-index: 2;
   padding-top: 2px;
   padding-left: 8px;
   padding-right: 12px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   margin: 10px;
   box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
 `;
