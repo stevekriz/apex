@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.div`
   position: relative;
   top: 15px;
-  width: 97%;
+  width: 1128px;
   height: 56px;
 `;
 
@@ -25,7 +25,6 @@ const HeaderText = styled.div`
 
 const PageIndicator = styled.div`
   font-size: 14px;
-
   position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
