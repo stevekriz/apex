@@ -10,4 +10,4 @@ RUN npm install --production
 
 COPY . .
 
-CMD [ "npm", "run"  ]
+CMD [ "npm", "run", "docker-start"]
