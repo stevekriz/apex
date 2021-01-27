@@ -22,7 +22,6 @@ const AppContainer = styled.div`
   height: 400px;
   align-items: center;
   justify-content: center;
-
 `;
 
 class App extends Component {

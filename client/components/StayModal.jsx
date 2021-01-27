@@ -24,9 +24,9 @@ background: rgb(255, 255, 255);
 display: flex;
 flex-wrap: nowrap;
 flex-direction: column;
-position: absolute;
+position: relative;
 z-index: 2;
-top: 20%;
+top: 100vh;
 left: 30%;
 width: 39.4%;
 height: 63.6%;
@@ -75,6 +75,7 @@ const NewStayButton = styled.button`
   text-align: center;
   padding: 0px;
 `;
+
 const CreateStayContainer = styled.div`
   display: inline-block;
   width: 512px;

@@ -7,7 +7,7 @@ const StayEntryContainer = styled.div`
   font-family: Nunito-sans;
   display: inline-flex;
   flex-wrap: wrap;
-  width: 512px;
+  width: 90%;
   height 64px;
   padding: 12px;
   text-align: center;
@@ -53,8 +53,9 @@ const Img = styled.img`
 
 const StayEntryInfoContainer = styled.div`
   position: relative;
+  display: inline-block;
   height: auto;
-  width: auto;
+  width: 80%;
   text-align: left;
   margin-left: 16px;
 
@@ -69,7 +70,7 @@ const StayEntryType = styled.div`
   color: rgb(113, 113, 113);
   box-sizing: border-box;
   height: 16px;
-  min-width: 432px;
+  width: 60%;
   text-align: left;
 `;
 
@@ -82,7 +83,7 @@ const StayEntryName = styled.div`
   color: rgb(34, 34, 34);
   margin-bottom: 4px;
   height: 20px;
-  min-width: 420px;
+  width: 50%;
   box-sizing: border-box;
 `;
 
@@ -91,7 +92,7 @@ const StayEntryAmount = styled.div`
   display: block;
   box-sizing: border-box;
   height 18px;
-  width: 420px;
+  width: 50%;
 `;
 
 class StayListEntry extends Component {
