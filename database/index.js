@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 // use for proxy server
 // mongodb://localhost/photo_carousel'
+
 mongoose.connect(process.env.CONNECTIONSTRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
