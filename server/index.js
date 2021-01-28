@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/:id/bundle', express.static(path.join(__dirname, '../public/bundle.js')));
+
 app.use('/:id', express.static(path.join(__dirname, '../public')));
 
 app.get('/api/img_carousel/:id', controllers.getPictures);

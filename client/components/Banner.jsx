@@ -18,7 +18,7 @@ const HeaderText = styled.div`
   padding-top: 17px;
   position: relative;
   float: left;
-  width: 200px;
+  width: 220px;
   height: auto:
   right: 20px;
 `;
