@@ -35,6 +35,7 @@ const ImgContainer = styled.div`
   display: flex;
   height: 190px;
   width: 270px;
+  overflow: hidden;
 `;
 
 const Img = styled.img`
@@ -123,12 +124,12 @@ class CarouselEntry extends Component {
     const { liked, showModal } = this.state;
     return (
       <Entry page={page}>
-        <CarouselEntryBanner
-          isSuperHost={isSuperHost}
-          handleClick={this.handleClick}
-          liked={liked}
-        />
         <ImgContainer>
+          <CarouselEntryBanner
+            isSuperHost={isSuperHost}
+            handleClick={this.handleClick}
+            liked={liked}
+          />
           <Img src={imgUrl} />
         </ImgContainer>
         <HouseInfo>

@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 8px;
 `;
 
 const IsSuperHost = styled.div`
@@ -12,27 +17,18 @@ const IsSuperHost = styled.div`
   background-color: rgba(255, 255, 255, 0.95);
   color: rgb(34, 34, 34);
   line-height: 20px;
-  text-align: center;
+  justify-content: center;
   position: absolute;
   background-color: white;
   border-radius: 3px;
   display: inline-flex;
   width: 32%;
-  height auto;
+  height 11%;
   z-index: 2;
-  padding-top: 2px;
-  padding-left: 8px;
-  padding-right: 12px;
-  padding-bottom: 20px;
   margin: 10px;
   box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
 `;
 
-const SuperHostContainer = styled.div`
-  display: inline-flex;
-  height: 32%;
-  width 2%;
-`;
 const IsLikedContainer = styled.div`
   position: absolute;
   display: inline-flex;
@@ -68,20 +64,12 @@ const IsLikedSVG = styled.svg`
   overflow: visible;
 `;
 
-const StarSVG = styled.svg`
-  height: 14px;
-  width: 14px;
-  fill: currentcolor;
-`;
-
 const CarouselEntryBanner = (props) => {
   const { isSuperHost, handleClick, liked } = props;
   return (
     <Wrapper>
       {isSuperHost ? (
-        <SuperHostContainer>
-          <IsSuperHost>SUPERHOST</IsSuperHost>
-        </SuperHostContainer>
+        <IsSuperHost>SUPERHOST</IsSuperHost>
       ) : ''}
       <IsLikedContainer>
         <IsLikedButton
@@ -104,3 +92,9 @@ const CarouselEntryBanner = (props) => {
 };
 
 export default CarouselEntryBanner;
+
+CarouselEntryBanner.propTypes = {
+  isSuperHost: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  liked: PropTypes.bool.isRequired,
+};
