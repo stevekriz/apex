@@ -31,7 +31,6 @@ const Entry = styled.div`
 
 const ImgContainer = styled.div`
   position: relative;
-  align-items: center;
   display: flex;
   height: 190px;
   width: 270px;

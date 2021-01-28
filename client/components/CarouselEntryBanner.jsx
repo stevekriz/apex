@@ -4,13 +4,19 @@ import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   position: absolute;
-  width: 100%;
-  height: 100%;
   display: flex;
+  width: 100%;
+  height: 30%;
   padding: 8px;
 `;
 
-const IsSuperHost = styled.div`
+const SuperHostContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+`;
+const SuperHost = styled.div`
   font-size: 11px;
   font-weight: bold;
   border: 0.5px solid rgba(0, 0, 0, 0.2);
@@ -18,14 +24,11 @@ const IsSuperHost = styled.div`
   color: rgb(34, 34, 34);
   line-height: 20px;
   justify-content: center;
-  position: absolute;
   background-color: white;
   border-radius: 3px;
   display: inline-flex;
   width: 32%;
-  height 11%;
-  z-index: 2;
-  margin: 10px;
+  height 25%;
   box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
 `;
 
@@ -69,7 +72,9 @@ const CarouselEntryBanner = (props) => {
   return (
     <Wrapper>
       {isSuperHost ? (
-        <IsSuperHost>SUPERHOST</IsSuperHost>
+        <SuperHostContainer>
+          <SuperHost>SUPERHOST</SuperHost>
+        </SuperHostContainer>
       ) : ''}
       <IsLikedContainer>
         <IsLikedButton
