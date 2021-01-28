@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 
 const SuperHostContainer = styled.div`
   height: 32%;
-  width: 32%;
+  width: 27%;
   position: absolute;
   z-index: 2;
 `;
