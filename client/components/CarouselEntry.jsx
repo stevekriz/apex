@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import StayModal from './StayModal';
+import CarouselEntryBanner from './CarouselEntryBanner';
 
 const StarContainer = styled.span`
   width: 20px;
@@ -42,64 +43,6 @@ const Img = styled.img`
   border-radius: 8px;
   height: 100%;
   width: 100%;
-`;
-
-const IsSuperHost = styled.div`
-  font-size: 11px;
-  font-weight: bold;
-  border: 0.5px solid rgba(0, 0, 0, 0.2);
-  background-color: rgba(255, 255, 255, 0.95);
-  color: rgb(34, 34, 34);
-  line-height: 20px;
-  text-align: center;
-  position: absolute;
-  background-color: white;
-  border-radius: 3px;
-  display: inline-flex;
-  width: 32%;
-  height: 2%;
-  z-index: 2;
-  padding-top: 2px;
-  padding-left: 8px;
-  padding-right: 12px;
-  padding-bottom: 20px;
-  margin: 10px;
-  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
-`;
-
-const IsLikedContainer = styled.div`
-  position: absolute;
-  display: inline-flex;
-  float: right;
-  z-index: 2;
-  height: 34px;
-  width: 32px;
-  right: 18px;
-  top: 25px;
-`;
-
-const IsLikedButton = styled.button`
-  cursor: pointer;
-  position: relative;
-  touch-action: manipulation;
-  border-radius: 0px;
-  outline: none;
-  background: transparent;
-  height: 100%;
-  width 100%;
-  border: none;
-  display: block;
-`;
-
-const IsLikedSVG = styled.svg`
-  display: block;
-  fill: ${(props) => (props.isClicked ? 'rgb(255, 56, 92)' : 'rgba(0, 0, 0, 0.5)')};
-  height: 24px;
-  width: 24px;
-  stroke:
-  rgb(255, 255, 255);
-  stroke-width: 2;
-  overflow: visible;
 `;
 
 const StarSVG = styled.svg`
@@ -160,7 +103,12 @@ class CarouselEntry extends Component {
   }
 
   render() {
-    const { entry, page, stayList } = this.props;
+    const {
+      entry,
+      page,
+      stayList,
+    } = this.props;
+
     const {
       PricePerNight,
       isSuperHost,
@@ -171,26 +119,15 @@ class CarouselEntry extends Component {
       description,
       NumOfReviews,
     } = entry;
+
     const { liked, showModal } = this.state;
     return (
       <Entry page={page}>
-        {isSuperHost ? (<IsSuperHost>SUPERHOST</IsSuperHost>) : ''}
-        <IsLikedContainer>
-          <IsLikedButton
-            onClick={this.handleClick}
-          >
-            <IsLikedSVG
-              isClicked={liked}
-              viewBox="0 0 32 32"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              role="presentation"
-              focusable="false"
-            >
-              <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z" />
-            </IsLikedSVG>
-          </IsLikedButton>
-        </IsLikedContainer>
+        <CarouselEntryBanner
+          isSuperHost={isSuperHost}
+          handleClick={this.handleClick}
+          liked={liked}
+        />
         <ImgContainer>
           <Img src={imgUrl} />
         </ImgContainer>

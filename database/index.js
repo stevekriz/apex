@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 // use for proxy server
 // mongodb://localhost/photo_carousel'
-
-mongoose.connect(process.env.CONNECTIONSTRING, {
+const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/photo_carousel';
+mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
