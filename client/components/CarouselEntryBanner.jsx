@@ -6,13 +6,13 @@ const Wrapper = styled.div`
   position: absolute;
   display: flex;
   width: 100%;
-  height: 30%;
+  height: 20%;
   padding: 8px;
 `;
 
 const SuperHostContainer = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 32%;
+  width: 32%;
   position: absolute;
   z-index: 2;
 `;
@@ -27,20 +27,19 @@ const SuperHost = styled.div`
   background-color: white;
   border-radius: 3px;
   display: inline-flex;
-  width: 32%;
-  height 25%;
+  width: 100%;
+  height 100%;
   box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
 `;
 
 const IsLikedContainer = styled.div`
-  position: absolute;
+  position: relative;
   display: inline-flex;
-  float: right;
   z-index: 2;
   height: 34px;
   width: 32px;
-  right: 18px;
-  top: 25px;
+  right: -221px;
+  top: -7px;
 `;
 
 const IsLikedButton = styled.button`
