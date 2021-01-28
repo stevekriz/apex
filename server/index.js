@@ -1,11 +1,14 @@
 /* eslint-disable no-console */
 const express = require('express');
+const compression = require('compression');
 
 const app = express();
 const port = 3004;
 const path = require('path');
 const bodyParser = require('body-parser');
 const controllers = require('./controllers/imageController.js');
+
+app.use(compression());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
