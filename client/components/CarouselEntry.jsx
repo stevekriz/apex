@@ -91,8 +91,9 @@ class CarouselEntry extends Component {
   }
 
   handleHide(e) {
-    e.stopPropagation();
-    this.setState({ showModal: false });
+    if (e.target.className === 'sc-dQppl cQZIoF') {
+      this.setState({ showModal: false });
+    }
   }
 
   toggleLiked() {
