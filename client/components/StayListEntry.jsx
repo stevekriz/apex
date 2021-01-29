@@ -7,7 +7,7 @@ const StayEntryContainer = styled.div`
   font-family: Nunito-sans;
   display: inline-flex;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   height 26%;
   padding: 12px;
   text-align: center;
