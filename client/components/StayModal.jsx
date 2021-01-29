@@ -9,11 +9,13 @@ const modalRoot = document.getElementById('img_carousel');
 const BackDrop = styled.div`
   font-family: Nunito Sans;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   background-color: rgba(0,0,0,0.7);
   position: fixed;
   top: 0px;
   left: 0px;
+  right: 0px;
+  : 0px;bottom: 0px;
   align-items: center;
 `;
 
@@ -23,8 +25,8 @@ display: flex;
 flex-wrap: nowrap;
 flex-direction: column;
 position: fixed;
-top: 30vh;
-left: 50%;
+50vwtop: 30vh;
+left: 50vw;
 transform: translate(-50%, -50%);
 overflow-y: hidden;
 z-index: 2;
