@@ -8,7 +8,7 @@ const db = require('./index.js');
 const onePic = () => {
   const folder = Math.round(Math.random() * (3 - 1) + 1);
   const image = Math.round(Math.random() * (15 - 0));
-  return `https://fec-photos-storage.s3-us-west-1.amazonaws.com/${folder}/${image}.jpg`;
+  return `https://fec-photos-storage-1.s3-us-west-1.amazonaws.com/${folder}/${image}.webp`;
 };
 
 const getPictures = () => {

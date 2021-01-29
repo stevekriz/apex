@@ -32,7 +32,7 @@ const Entry = styled.div`
 const ImgContainer = styled.div`
   position: relative;
   display: flex;
-  height: 190px;
+  height: 180px;
   width: 270px;
   overflow: hidden;
 `;
@@ -129,7 +129,12 @@ class CarouselEntry extends Component {
             handleClick={this.handleClick}
             liked={liked}
           />
-          <Img src={imgUrl} />
+          <Img
+            src={imgUrl}
+            width="256px"
+            height="171px"
+            alt="House Image"
+          />
         </ImgContainer>
         <HouseInfo>
           <div>

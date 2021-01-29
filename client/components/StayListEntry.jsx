@@ -122,9 +122,16 @@ class StayListEntry extends Component {
     const { count } = this.state;
     return (
       <StayEntryContainer onClick={this.handleClick}>
-        <StayEntryButton>
+        <StayEntryButton
+          aria-label="center"
+        >
           <StayImageContainer>
-            <Img src={stayPic} />
+            <Img
+              src={stayPic}
+              alt="Stay list image"
+              height="35px"
+              width="35px"
+            />
           </StayImageContainer>
         </StayEntryButton>
         <StayEntryInfoContainer>

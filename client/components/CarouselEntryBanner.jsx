@@ -78,6 +78,7 @@ const CarouselEntryBanner = (props) => {
       <IsLikedContainer>
         <IsLikedButton
           onClick={handleClick}
+          aria-label="Right Align"
         >
           <IsLikedSVG
             isClicked={liked}

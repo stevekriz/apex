@@ -189,6 +189,7 @@ class StayModal extends Component {
             <Header>
               <HideButton
                 onClick={handleHide}
+                aria-label="Left Align"
               >
                 <Xsymbol
                   viewBox="0 0 32 32"
@@ -206,7 +207,7 @@ class StayModal extends Component {
             </Header>
             <StayListContainer>
               <CreateStayContainer>
-                <NewStayButton>
+                <NewStayButton aria-label="Center">
                   <PlusSymbolContainer>
                     <PlusSymbol>
                       <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
