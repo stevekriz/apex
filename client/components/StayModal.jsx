@@ -36,6 +36,10 @@ max-width: 568px;
 max-height: 456px;
 box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px ;
 border-radius: 12px;
+animation-duration: 400ms;
+animation-iteration-count: 1;
+animation-fill-mode: both;
+animation-name: keyframe_d37zz3;
 `;
 
 const Header = styled.div`
@@ -185,6 +189,7 @@ class StayModal extends Component {
             <Header>
               <HideButton
                 onClick={handleHide}
+                aria-label="Left Align"
               >
                 <Xsymbol
                   viewBox="0 0 32 32"
@@ -202,7 +207,7 @@ class StayModal extends Component {
             </Header>
             <StayListContainer>
               <CreateStayContainer>
-                <NewStayButton>
+                <NewStayButton aria-label="Center">
                   <PlusSymbolContainer>
                     <PlusSymbol>
                       <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
