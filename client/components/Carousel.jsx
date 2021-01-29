@@ -14,7 +14,7 @@ const TheCarousel = styled.div`
   };
 `;
 
-const CarouselContainer = styled.div`
+const ImgCarouselContainer = styled.div`
   position: relative;
   display: flex;
   width: 100%;
@@ -35,7 +35,7 @@ class Carousel extends Component {
       page, gallery, stayList,
     } = this.props;
     return (
-      <CarouselContainer>
+      <ImgCarouselContainer>
         <TheCarousel>
           {gallery.map((entry) => (
             <CarouselEntry
@@ -46,7 +46,7 @@ class Carousel extends Component {
             />
           ))}
         </TheCarousel>
-      </CarouselContainer>
+      </ImgCarouselContainer>
     );
   }
 }

@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 import Banner from './Banner';
 import Carousel from './Carousel';
 
-const Wrapper = styled.div`
+const CarouselAppBackdrop = styled.div`
   display: flex;
   justify-content: center;
   background-color: rgba(247, 247, 247, 1);
   height: auto;
 `;
-const AppContainer = styled.div`
+const CarouselAppContainer = styled.div`
   font-family: Nunito Sans;
   margin: 5%;
   align: center;
@@ -24,7 +24,7 @@ const AppContainer = styled.div`
   justify-content: center;
 `;
 
-class App extends Component {
+class CarouselApp extends Component {
   constructor(props) {
     super(props);
 
@@ -90,33 +90,32 @@ class App extends Component {
 
     if (isLoading) {
       return (
-        <Wrapper>...Loading</Wrapper>
+        <CarouselAppBackdrop>...Loading</CarouselAppBackdrop>
       );
     }
 
     return (
-      <>
-        <Wrapper>
-          <AppContainer>
-            <Banner
-              direction={this.scrollPage}
-              page={page}
-              maxPage={Math.ceil(gallery.length / 4)}
-            />
-            <Carousel
-              stayList={stayList}
-              gallery={gallery}
-              page={page}
-            />
-          </AppContainer>
-        </Wrapper>
-      </>
+      <CarouselAppBackdrop>
+        <CarouselAppContainer>
+          <Banner
+            direction={this.scrollPage}
+            page={page}
+            maxPage={Math.ceil(gallery.length / 4)}
+          />
+          <Carousel
+            stayList={stayList}
+            gallery={gallery}
+            page={page}
+          />
+        </CarouselAppContainer>
+      </CarouselAppBackdrop>
+
     );
   }
 }
 
-export default App;
+export default CarouselApp;
 
-App.propTypes = {
+CarouselApp.propTypes = {
   _id: PropTypes.string.isRequired,
 };

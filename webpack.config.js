@@ -25,4 +25,5 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx', '.css'],
   },
   mode: 'production',
+  plugins: ['babel-plugin-styled-compoents'],
 };
