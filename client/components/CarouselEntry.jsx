@@ -90,10 +90,8 @@ class CarouselEntry extends Component {
     this.setState({ showModal: true });
   }
 
-  handleHide(e) {
-    if (e.target.className === 'sc-dQppl cQZIoF') {
-      this.setState({ showModal: false });
-    }
+  handleHide() {
+    this.setState({ showModal: false });
   }
 
   toggleLiked() {
