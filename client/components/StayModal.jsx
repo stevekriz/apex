@@ -15,7 +15,7 @@ const BackDrop = styled.div`
   top: 0px;
   left: 0px;
   right: 0px;
-  : 0px;bottom: 0px;
+  bottom: 0px;
   align-items: center;
 `;
 
@@ -25,7 +25,7 @@ display: flex;
 flex-wrap: nowrap;
 flex-direction: column;
 position: fixed;
-50vwtop: 30vh;
+top: 50vh;
 left: 50vw;
 transform: translate(-50%, -50%);
 overflow-y: hidden;
@@ -80,8 +80,8 @@ const NewStayButton = styled.button`
 
 const CreateStayContainer = styled.div`
   display: inline-block;
-  width: 512px;
-  height 64px;
+  width: 100%;
+  height 26%;
   padding: 12px;
   border-radius: 4px;
   &:hover {
