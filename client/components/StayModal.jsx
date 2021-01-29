@@ -36,6 +36,10 @@ max-width: 568px;
 max-height: 456px;
 box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px ;
 border-radius: 12px;
+animation-duration: 400ms;
+animation-iteration-count: 1;
+animation-fill-mode: both;
+animation-name: keyframe_d37zz3;
 `;
 
 const Header = styled.div`
