@@ -12,10 +12,8 @@ const BackDrop = styled.div`
   justify-content: flex-start;
   background-color: rgba(0,0,0,0.7);
   position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   align-items: center;
 `;
 
@@ -24,10 +22,12 @@ background: rgb(255, 255, 255);
 display: flex;
 flex-wrap: nowrap;
 flex-direction: column;
-position: relative;
+position: fixed;
+top: 30vh;
+left: 50%;
+transform: translate(-50%, -50%);
+overflow-y: hidden;
 z-index: 2;
-top: 100vh;
-left: 30%;
 width: 39.4%;
 height: 63.6%;
 max-width: 568px;
@@ -178,49 +178,50 @@ class StayModal extends Component {
     const { handleHide, stayList, toggleLiked } = this.props;
     return ReactDOM.createPortal(
       <>
-        <BackDrop onClick={handleHide} />
-        <ModalContainer>
-          <Header>
-            <HideButton
-              onClick={handleHide}
-            >
-              <Xsymbol
-                viewBox="0 0 32 32"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                role="presentation"
-                focusable="false"
-                path="m6 6 20 20"
+        <BackDrop onClick={handleHide}>
+          <ModalContainer>
+            <Header>
+              <HideButton
+                onClick={handleHide}
               >
-                <path d="m8 6 20 20" />
-                <path d="m28 6-20 20" />
-              </Xsymbol>
-            </HideButton>
-            <HeaderText>Save to a list</HeaderText>
-          </Header>
-          <StayListContainer>
-            <CreateStayContainer>
-              <NewStayButton>
-                <PlusSymbolContainer>
-                  <PlusSymbol>
-                    <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
-                  </PlusSymbol>
-                </PlusSymbolContainer>
-                <CreateNewListText>
-                  Create a new list
-                </CreateNewListText>
-              </NewStayButton>
-            </CreateStayContainer>
-            {stayList.map((stay) => (
-              <StayListEntry
-                handleHide={handleHide}
-                toggleLiked={toggleLiked}
-                key={stay.stayId}
-                stay={stay}
-              />
-            ))}
-          </StayListContainer>
-        </ModalContainer>
+                <Xsymbol
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                  path="m6 6 20 20"
+                >
+                  <path d="m8 6 20 20" />
+                  <path d="m28 6-20 20" />
+                </Xsymbol>
+              </HideButton>
+              <HeaderText>Save to a list</HeaderText>
+            </Header>
+            <StayListContainer>
+              <CreateStayContainer>
+                <NewStayButton>
+                  <PlusSymbolContainer>
+                    <PlusSymbol>
+                      <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
+                    </PlusSymbol>
+                  </PlusSymbolContainer>
+                  <CreateNewListText>
+                    Create a new list
+                  </CreateNewListText>
+                </NewStayButton>
+              </CreateStayContainer>
+              {stayList.map((stay) => (
+                <StayListEntry
+                  handleHide={handleHide}
+                  toggleLiked={toggleLiked}
+                  key={stay.stayId}
+                  stay={stay}
+                />
+              ))}
+            </StayListContainer>
+          </ModalContainer>
+        </BackDrop>
       </>,
       this.el,
     );
