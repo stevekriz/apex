@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Wrapper = styled.div`
+const CarBannerWrapper = styled.div`
   position: relative;
   top: 15px;
   width: 1128px;
   height: 56px;
 `;
 
-const HeaderText = styled.div`
+const CarHeaderText = styled.div`
   font-weight: 600;
   font-size: 22px;
   color: #222222;
@@ -23,7 +23,7 @@ const HeaderText = styled.div`
   right: 20px;
 `;
 
-const PageIndicator = styled.div`
+const CarPageIndicator = styled.div`
   font-size: 14px;
   position: relative;
   padding-top: 20px;
@@ -35,7 +35,7 @@ const PageIndicator = styled.div`
   left: -20px;
   `;
 
-const PageScrollButton = styled.button`
+const CarPageScrollButton = styled.button`
   background-color: rgba(255, 255, 255, 0.9);
   border-color: rgba( 255, 255, 255, 0.9);
   border-bottom-color: rgba(0, 0, 0, 0.08);
@@ -55,14 +55,14 @@ const PageScrollButton = styled.button`
   outline: none;
 `;
 
-const LeftButtonSVG = styled.svg`
+const CarLeftButtonSVG = styled.svg`
   height: 10px;
   width: 10px;
   display: block;
   fill: currentcolor;
 `;
 
-const RightButtonSVG = styled.svg`
+const CarRightButtonSVG = styled.svg`
   height: 10px;
   width: 10px;
   display: block;
@@ -83,26 +83,26 @@ class Banner extends Component {
   render() {
     const { page, maxPage } = this.props;
     return (
-      <Wrapper>
-        <HeaderText>More places to stay</HeaderText>
-        <PageScrollButton onClick={() => this.handleClick('right')}>
-          <RightButtonSVG viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
+      <CarBannerWrapper>
+        <CarHeaderText>More places to stay</CarHeaderText>
+        <CarPageScrollButton onClick={() => this.handleClick('right')}>
+          <CarRightButtonSVG viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
             <path
               d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z"
               fillRule="evenodd"
             />
-          </RightButtonSVG>
-        </PageScrollButton>
-        <PageScrollButton onClick={() => this.handleClick('left')}>
-          <LeftButtonSVG viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
+          </CarRightButtonSVG>
+        </CarPageScrollButton>
+        <CarPageScrollButton onClick={() => this.handleClick('left')}>
+          <CarLeftButtonSVG viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
             <path
               d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z"
               fillRule="evenodd"
             />
-          </LeftButtonSVG>
-        </PageScrollButton>
-        <PageIndicator>{`${page} / ${maxPage}`}</PageIndicator>
-      </Wrapper>
+          </CarLeftButtonSVG>
+        </CarPageScrollButton>
+        <CarPageIndicator>{`${page} / ${maxPage}`}</CarPageIndicator>
+      </CarBannerWrapper>
     );
   }
 }
