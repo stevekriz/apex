@@ -90,7 +90,8 @@ class CarouselEntry extends Component {
     this.setState({ showModal: true });
   }
 
-  handleHide() {
+  handleHide(e) {
+    e.stopPropagation();
     this.setState({ showModal: false });
   }
 
