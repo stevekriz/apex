@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import CarouselEntry from './CarouselEntry';
 
 const TheCarousel = styled.div`
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   box-sizing: border-box;
   width: 100%;
   height: 350px;

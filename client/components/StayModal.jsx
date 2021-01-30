@@ -7,11 +7,12 @@ import StayListEntry from './StayListEntry';
 const modalRoot = document.getElementById('img_carousel');
 
 const BackDrop = styled.div`
-  font-family: Nunito Sans;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   display: flex;
   justify-content: center;
   background-color: rgba(0,0,0,0.7);
   position: fixed;
+  z-index: 5;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -29,7 +30,7 @@ top: 50vh;
 left: 50vw;
 transform: translate(-50%, -50%);
 overflow-y: hidden;
-z-index: 2;
+z-index: 6;
 width: 39.4%;
 height: 63.6%;
 max-width: 568px;
