@@ -95,7 +95,6 @@ const CreateStayContainer = styled.div`
 `;
 const HeaderText = styled.div`
   position: relative;
-  font-family: Nunito Sans;
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;
@@ -182,15 +181,15 @@ class StayModal extends Component {
   }
 
   render() {
-    const { handleHide, stayList, toggleLiked } = this.props;
+    const { HideModal, stayList, toggleLiked } = this.props;
     return ReactDOM.createPortal(
       <>
-        <BackDrop onClick={handleHide}>
-          <ModalContainer>
+        <BackDrop onClick={HideModal}>
+          <ModalContainer onClick={(e) => e.stopPropagation()}>
             <Header>
               <HideButton
-                onClick={handleHide}
-                aria-label="Left Align"
+                onClick={HideModal}
+                aria-label="Hide Stay list"
               >
                 <Xsymbol
                   viewBox="0 0 32 32"
@@ -208,7 +207,7 @@ class StayModal extends Component {
             </Header>
             <StayListContainer>
               <CreateStayContainer>
-                <NewStayButton aria-label="Center">
+                <NewStayButton aria-label="Create New Stay">
                   <PlusSymbolContainer>
                     <PlusSymbol>
                       <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
@@ -221,7 +220,7 @@ class StayModal extends Component {
               </CreateStayContainer>
               {stayList.map((stay) => (
                 <StayListEntry
-                  handleHide={handleHide}
+                  hideModal={HideModal}
                   toggleLiked={toggleLiked}
                   key={stay.stayId}
                   stay={stay}
@@ -239,7 +238,7 @@ class StayModal extends Component {
 export default StayModal;
 
 StayModal.propTypes = {
-  handleHide: PropTypes.func.isRequired,
+  HideModal: PropTypes.func.isRequired,
   stayList: PropTypes.arrayOf(PropTypes.object).isRequired,
   toggleLiked: PropTypes.func.isRequired,
 };

@@ -53,6 +53,9 @@ const IsLikedButton = styled.button`
   width 100%;
   border: none;
   display: block;
+  &:active {
+    transform: scale(0.92);
+  }
 `;
 
 const IsLikedSVG = styled.svg`

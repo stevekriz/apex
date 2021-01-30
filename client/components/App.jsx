@@ -11,14 +11,15 @@ const CarouselAppBackdrop = styled.div`
   background-color: rgba(247, 247, 247, 1);
   height: auto;
 `;
+
 const CarouselAppContainer = styled.div`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif Sans;
   margin: 5%;
   align: center;
   display: flex;
   flex-wrap: wrap;
-  width: 250%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1128px;
   height: 400px;
   align-items: center;
   justify-content: center;

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const StayEntryContainer = styled.div`
   cursor: pointer;
-  font-family: Nunito-sans;
   display: inline-flex;
   flex-wrap: wrap;
   width: 100%;
@@ -107,13 +106,13 @@ class StayListEntry extends Component {
   }
 
   handleClick() {
-    const { toggleLiked, handleHide } = this.props;
+    const { toggleLiked, hideModal } = this.props;
     const { count } = this.state;
     this.setState({
       count: count + 1,
     });
     toggleLiked();
-    handleHide();
+    hideModal();
   }
 
   render() {
@@ -154,7 +153,7 @@ export default StayListEntry;
 
 StayListEntry.propTypes = {
   toggleLiked: PropTypes.func.isRequired,
-  handleHide: PropTypes.func.isRequired,
+  hideModal: PropTypes.func.isRequired,
   stay: PropTypes.shape({
     stayName: PropTypes.string.isRequired,
     stayPic: PropTypes.string.isRequired,
