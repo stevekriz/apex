@@ -38,11 +38,8 @@ const CarPageIndicator = styled.div`
 
 const CarPageScrollButton = styled.button`
   background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-color: rgba( 255, 255, 255, 0.9);
-  border-bottom-color: rgba(0, 0, 0, 0.08);
-  border-bottom-style: solid;
-  border-right-color: gba(0, 0, 0, 0.08);
-  border-right-style: solid;
   border-radius: 50%;
   box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px;
   cursor: pointer;
@@ -54,6 +51,20 @@ const CarPageScrollButton = styled.button`
   height: 32px;
   width: 32px;
   outline: none;
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.08);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    transform: scale(1.04);
+  };
+  &:active {
+    border-color: rgba(0, 0, 0, 0.08);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0) !important;
+    transform: scale(1);
+    box-shadow: none;
+  };
 `;
 
 const CarLeftButtonSVG = styled.svg`
@@ -88,7 +99,7 @@ class Banner extends Component {
         <CarHeaderText>More places to stay</CarHeaderText>
         <CarPageScrollButton
           onClick={() => this.handleClick('right')}
-          aria-label="Right Align"
+          aria-label="Previous"
         >
           <CarRightButtonSVG viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
             <path
@@ -99,7 +110,7 @@ class Banner extends Component {
         </CarPageScrollButton>
         <CarPageScrollButton
           onClick={() => this.handleClick('left')}
-          aria-label="Right Align"
+          aria-label="Next"
         >
           <CarLeftButtonSVG viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
             <path
