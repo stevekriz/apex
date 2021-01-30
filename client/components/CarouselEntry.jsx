@@ -26,7 +26,7 @@ const Entry = styled.div`
   cursor: pointer;
   padding-top: 20px;
   margin: 10px;
-  transform: translateX(-${(props) => (props.page - 1) * 1187}px);
+  transform: translateX(-${(props) => (props.page - 1) * 1128}px);
   transition: transform 0.3s ease-in;
 `;
 
@@ -167,7 +167,7 @@ class CarouselEntry extends Component {
         {showModal ? (
           <StayModal
             toggleLiked={this.toggleLiked}
-            handleHide={this.handleHide}
+            HideModal={this.handleHide}
             stayList={stayList}
           />
         ) : null}

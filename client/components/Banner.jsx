@@ -8,6 +8,7 @@ const CarBannerWrapper = styled.div`
   top: 15px;
   width: 1128px;
   height: 56px;
+  margin-left: 1%;
 `;
 
 const CarHeaderText = styled.div`
