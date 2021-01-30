@@ -95,7 +95,6 @@ const CreateStayContainer = styled.div`
 `;
 const HeaderText = styled.div`
   position: relative;
-  font-family: Nunito Sans;
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;

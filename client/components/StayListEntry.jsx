@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const StayEntryContainer = styled.div`
   cursor: pointer;
-  font-family: Nunito-sans;
   display: inline-flex;
   flex-wrap: wrap;
   width: 100%;
