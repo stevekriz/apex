@@ -15,6 +15,7 @@ const ReviewCount = styled.span`
 `;
 
 const Entry = styled.div`
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   font-size: 16px;
   display: inline-block;
   position: relative;

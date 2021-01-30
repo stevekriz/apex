@@ -12,7 +12,7 @@ const CarouselAppBackdrop = styled.div`
   height: auto;
 `;
 const CarouselAppContainer = styled.div`
-  font-family: Nunito Sans;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif Sans;
   margin: 5%;
   align: center;
   display: flex;
