@@ -120,3 +120,5 @@ export default CarouselApp;
 CarouselApp.propTypes = {
   _id: PropTypes.string.isRequired,
 };
+
+fasdfas
