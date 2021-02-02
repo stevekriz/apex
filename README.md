@@ -1,6 +1,6 @@
-# Project Name
+# HouseHub
 
-> Project description
+> A RESTful API that will display home rental information. 
 
 ## Related Projects
 
