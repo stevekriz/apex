@@ -18,4 +18,4 @@ jobs:
             - /home/circleci/.npm
       - run:
           name: Start Server and Run Tests
-          command: npm start & npm test
+          command: npm run circle & npm test
