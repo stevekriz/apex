@@ -2,20 +2,17 @@ const request = require('supertest');
 
 const port = 3004;
 
-describe('/api/img_carousel/:id', () => {
+describe('Test the /api/img_carousel/:id path', () => {
   const id = Math.floor(Math.random() * (100 - 1) + 1);
-  it('makes a successful API call', (done) => {
+  it('it should respond to a proper GET request', (done) => {
     request(`localhost:${port}`)
       .get(`/api/img_carousel/${id}`)
       .expect(200, done);
   });
 
-  it('brings back some appriopriate data ', (done) => {
+  it('it should respond to an improper GET request', (done) => {
     request(`localhost:${port}`)
-      .get(`/api/img_carousel/${id}`)
-      .expect((res) => {
-        res.body[0].id = id;
-      })
-      .expect(200, done);
+      .get('/api/img_carousel/id')
+      .expect(400, done);
   });
 });
