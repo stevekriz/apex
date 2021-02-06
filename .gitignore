@@ -26,3 +26,5 @@ dist/
 
 package-lock.json
 bundle.js
+public/bundle.js
+database/CSV

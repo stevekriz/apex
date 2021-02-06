@@ -29,10 +29,10 @@ class CarouselApp extends Component {
   constructor(props) {
     super(props);
 
-    const { _id } = props;
+    const { primaryListingId } = props;
 
     this.state = {
-      dataId: _id,
+      primaryListingId,
       gallery: [],
       stayList: [],
       page: 1,
@@ -48,8 +48,8 @@ class CarouselApp extends Component {
   }
 
   getData() {
-    const { dataId } = this.state;
-    axios.get(`/api/img_carousel/${dataId}`)
+    const { primaryListingId } = this.state;
+    axios.get(`/api/similarListings/${primaryListingId}`)
       .then((response) => this.setState({
         gallery: response.data[0].ImgUrls,
         stayList: response.data[0].stayList,
@@ -118,5 +118,5 @@ class CarouselApp extends Component {
 export default CarouselApp;
 
 CarouselApp.propTypes = {
-  _id: PropTypes.string.isRequired,
+  primaryListingId: PropTypes.string.isRequired,
 };

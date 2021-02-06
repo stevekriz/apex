@@ -1,34 +1,9 @@
-const mongoose = require('mongoose');
+const { Client } = require('pg');
 
-// use for proxy server
-// mongodb://localhost/photo_carousel'
-const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/photo_carousel';
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
+const client = new Client({
+  user: 'postgres',
+  password: 'postgres',
+  database: 'carousel',
+  port: 5432,
 });
-
-const { Schema, connection } = mongoose;
-
-const CarouselSchema = new Schema({
-  _id: Number,
-  stayList: Array,
-  ImgUrls: Array,
-});
-
-const StayEntry = new Schema({
-  stayId: Number,
-  stayName: String,
-  stayPic: String,
-});
-
-const CarouselModel = mongoose.model('CarouselModel', CarouselSchema);
-const StayModel = mongoose.model('StayModel', StayEntry);
-
-module.exports = {
-  CarouselModel,
-  StayModel,
-  connection,
-};
+client.connect();
