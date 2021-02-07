@@ -21,10 +21,6 @@ Queries similar_listings table by primary listing id. Provides similar listings 
   * no request body required
   * returns similar listings & 200 satus code
 ```
-// example request
-get('/api/similar_listings/8765');
-
-// example response
 [
   {
     listing_id: 13,
@@ -48,26 +44,9 @@ get('/api/similar_listings/8765');
 Adds record to listings table. Allows landlords to post listings to the listings table.
   * no params required
   * request body required
-  * returns a single listing record & 201 status code
+  * returns a 201 status code
 ```
-// example request
-post('/api/listings');
-
-// example request body
 {
-  image_url: ‘https://image.com’,
-  house_type: ‘type’,
-  description: ‘description’,
-  is_super_host: false,
-  average_rating: 4.32,
-  number_of_beds: 4,
-  number_of_reviews: 2,
-  price_per_night: 343
-}
-
-// example response
-{
-  listing_id: 13,
   image_url: ‘https://image.com’,
   house_type: ‘type’,
   description: ‘description’,
@@ -79,48 +58,24 @@ post('/api/listings');
 }
 ```
 
-#### PATCH /api/listings/:id
+#### PATCH /api/listings/:listing_id
 
 Update record in listings table. Allows landlords to update listing details in the listings table.
   * id param required
   * request body required
-  * returns a single listing record & 204 status code
+  * returns a 204 status code
 ```
-// example request
-patch('/api/listings/13');
-
-// example request body (this example only updates image url)
 {
   image_url: ‘https://image1.com’
 }
-
-// example response
-{
-  listing_id: 13,
-  image_url: ‘https://image1.com’,
-  house_type: ‘type’,
-  description: ‘description’,
-  is_super_host: false,
-  average_rating: 4.32,
-  number_of_beds: 4,
-  number_of_reviews: 2,
-  price_per_night: 343
-}
 ```
 
-#### DELETE /api/listings/:id
+#### DELETE /api/listings/:listing_id
 
 Delete record from listings table. Allows landlords to delete listings from the listings table.
 * id param required
 * no request body required
 * returns a 204 status code
-```
-// example request
-delete('/api/listings/13');
-
-// example response
-204 deletion successful
-```
 
 ## Database selection
 

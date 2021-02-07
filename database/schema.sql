@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS similar_listings (
 
 CREATE TABLE IF NOT EXISTS users (
   user_id serial,
-  user_name character(25) NOT NULL,
+  user_name character(40) NOT NULL,
   user_password character(25) NOT NULL,
   email character(40) NOT NULL,
   first_name character(25) NOT NULL,

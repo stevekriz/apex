@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const records = 10000000;
+const records = 800000;
 
 const similarListing = (startIndex, endIndex) => {
   const similarListings = [];

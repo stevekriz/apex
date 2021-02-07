@@ -1,9 +1,9 @@
 const express = require('express');
 const compression = require('compression');
-const path = require('path');
 const bodyParser = require('body-parser');
+const path = require('path');
 
-const controllers = require('./controllers/similarListingsController.js');
+const routes = require('./routes.js');
 
 const app = express();
 const port = 3000;
@@ -14,12 +14,9 @@ app.use(bodyParser.json());
 
 app.use('/:id/bundle', express.static(path.join(__dirname, '../public/bundle.js')));
 app.use('/:id', express.static(path.join(__dirname, '../public')));
-app.get('/api/primaryListingId/:id', controllers.get);
+
+app.use('/api/similar_listings', routes);
+app.use('/api/listings', routes);
 
 // eslint-disable-next-line no-console
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
-
-module.exports = {
-  app,
-  port,
-};
+app.listen(port, () => console.log(`Listening at http://localhost:${port}`));

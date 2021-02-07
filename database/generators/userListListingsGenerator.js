@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const records = 10000000;
+const records = 800000;
 
 const userListListing = (startIndex, endIndex) => {
   const userListListings = [];
   for (let i = startIndex + 1; i <= endIndex + 1; i += 1) {
-    const numberOfUserListListings = Math.floor(Math.random() * (4 - 1 + 1) + 1);
+    const numberOfUserListListings = Math.floor(Math.random() * (3 - 1 + 1) + 1);
     for (let j = 0; j < numberOfUserListListings; j += 1) {
       const randomListings = Math.floor(Math.random() * (records - 1) + 1);
       const entry = {

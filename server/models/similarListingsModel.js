@@ -1,9 +1,11 @@
-// const db = require('../../database/index.js');
+const db = require('../../database/index.js');
 
-// const get = (params, cb) => {
-//   db.CarouselModel.find({ _id: params.id }, cb);
-// };
+const get = (id, cb) => {
+  const query = 'SELECT * FROM listings WHERE listing_id IN (SELECT similar_listing_id FROM similar_listings WHERE primary_listing_id=$1);';
+  const values = [id];
+  db.query(query, values, cb);
+};
 
-// module.exports = {
-//   get,
-// };
+module.exports = {
+  get,
+};

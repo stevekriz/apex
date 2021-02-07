@@ -5,7 +5,7 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const userList = (startIndex, endIndex) => {
   const userLists = [];
   for (let i = startIndex + 1; i <= endIndex + 1; i += 1) {
-    const numberOfUserLists = Math.floor(Math.random() * (4 - 0 + 1) + 0);
+    const numberOfUserLists = Math.floor(Math.random() * (3 - 0 + 1) + 0);
     for (let j = 0; j < numberOfUserLists; j += 1) {
       const entry = {
         users_id: i,
