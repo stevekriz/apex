@@ -140,53 +140,53 @@ deployed to multiple nodes using replication.
 
 ### listings table
 
- key |   property name    | data type
------+--------------------+--------------
- PK  | id                 | serial
-     | image_url          | character(55)
-     | house_type         | character(15)
-     | description        | character(35)
-     | is_super_host      | boolean
-     | average_rating     | decimal
-     | number_of_beds     | integer
-     | number_of_reviews  | integer
-     | price_per_night    | integer
+| key | property name     | data type     |
+| --- | -------------     | ---------     |
+| PK  | id                | serial        |
+|     | image_url         | character(55) |
+|     | house_type        | character(15) |
+|     | description       | character(35) |
+|     | is_super_host     | boolean       |
+|     | average_rating    | decimal       |
+|     | number_of_beds    | integer       |
+|     | number_of_reviews | integer       |
+|     | price_per_night   | integer       |
 
 ### similar_listings table
 
- key |   property name    | data type
------+--------------------+-----------
- PK  | id                 | serial
- FK  | primary_listing_id | integer
- FK  | similar_listing_id | integer
+| key | property name      | data type |
+| --- | -------------      | --------- |
+| PK  | id                 | serial    |
+| FK  | primary_listing_id | integer   |
+| FK  | similar_listing_id | integer   |
 
 ### users table
 
- key | property name | data type
------+---------------+--------------
- PK  | id            | serial
-     | user_name     | character(25)
-     | user_password | character(20)
-     | email         | character(40)
-     | first_name    | character(15)
-     | last_name     | character(15)
+| key | property name     | data type      |
+| --- | -------------     | ---------      |
+| PK  | id                | serial         |
+|     | user_name         | character(25)  |
+|     | user_password     | character(20)  |
+|     | email             | character(40)  |
+|     | first_name        | character(15)  |
+|     | last_name         | character(15)  |
 
 ### user_lists table
 
- key | property name | data type
------+---------------+--------------
- PK  | id            | serial
- FK  | users_id      | integer
-     | name          | character(15)
-     | image_url     | character(55)
+| key | property name      | data type     |
+| --- | -------------      | ---------     |
+| PK  | id                 | serial        |
+| FK  | users_id           | integer       |
+|     | name               | character(15) |
+|     | image_url          | character(55) |
 
 ### user_list_listings table
 
- key | property name | data type
------+---------------+-----------
- PK  | id            | serial
- FK  | user_lists_id | integer
- FK  | listing_id    | integer
+| key | property name      | data type     |
+| --- | -------------      | ---------     |
+| PK  | id                 | serial        |
+| FK  | user_lists_id      | integer       |
+| FK  | listing_id         | integer       |
 
 ### Database ER Diagram:
 
