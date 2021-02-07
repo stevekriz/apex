@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+/* eslint-disable camelcase */
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const StayEntryContainer = styled.div`
   cursor: pointer;
@@ -94,7 +95,7 @@ const StayEntryAmount = styled.div`
   width: 50%;
 `;
 
-class StayListEntry extends Component {
+class StayListEntry extends React.Component {
   constructor(props) {
     super(props);
 
@@ -117,7 +118,7 @@ class StayListEntry extends Component {
 
   render() {
     const { stay } = this.props;
-    const { stayPic, stayName } = stay;
+    const { image_url, name } = stay;
     const { count } = this.state;
     return (
       <StayEntryContainer onClick={this.handleClick}>
@@ -126,7 +127,7 @@ class StayListEntry extends Component {
         >
           <StayImageContainer>
             <Img
-              src={stayPic}
+              src={image_url}
               alt="Stay list image"
               height="35px"
               width="35px"
@@ -138,7 +139,7 @@ class StayListEntry extends Component {
             Any time
           </StayEntryType>
           <StayEntryName>
-            {stayName}
+            {name}
           </StayEntryName>
           <StayEntryAmount>
             {count === 1 ? `${count} stay` : `${count} stays`}
@@ -155,8 +156,8 @@ StayListEntry.propTypes = {
   toggleLiked: PropTypes.func.isRequired,
   hideModal: PropTypes.func.isRequired,
   stay: PropTypes.shape({
-    stayName: PropTypes.string.isRequired,
-    stayPic: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    image_url: PropTypes.string.isRequired,
   }).isRequired,
 
 };

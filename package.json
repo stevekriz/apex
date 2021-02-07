@@ -1,20 +1,14 @@
 {
-  "name": "photo_carousel",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
     "circle": "node server/index.js",
-    "getData": "node database/seed.js",
+    "docker": "node database/seed.js & webpack & node server/index.js",
+    "generate": "node database/generate.js",
     "start": "nodemon server/index.js",
-    "build": "webpack",
-    "watch": "webpack -w",
     "test": "jest",
-    "docker-start": "node database/seed.js & webpack & node server/index.js"
+    "watch": "webpack --watch"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
@@ -31,7 +25,6 @@
     "csv-writer": "^1.6.0",
     "express": "^4.17.1",
     "faker": "^5.1.0",
-    "mongoose": "^5.11.11",
     "pg": "^8.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",

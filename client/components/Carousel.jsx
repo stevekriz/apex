@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import CarouselEntry from './CarouselEntry';
 
 const TheCarousel = styled.div`
@@ -24,7 +25,7 @@ const ImgCarouselContainer = styled.div`
   overflow-x: hidden;
 `;
 
-class Carousel extends Component {
+class Carousel extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +34,9 @@ class Carousel extends Component {
 
   render() {
     const {
-      page, gallery, stayList,
+      page,
+      gallery,
+      stayList,
     } = this.props;
     return (
       <ImgCarouselContainer>

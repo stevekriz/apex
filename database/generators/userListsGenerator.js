@@ -7,10 +7,11 @@ const userList = (startIndex, endIndex) => {
   for (let i = startIndex + 1; i <= endIndex + 1; i += 1) {
     const numberOfUserLists = Math.floor(Math.random() * (3 - 0 + 1) + 0);
     for (let j = 0; j < numberOfUserLists; j += 1) {
+      const random = Math.floor(Math.random() * (503 - 1 + 1) + 1);
       const entry = {
         users_id: i,
-        stay_name: faker.lorem.word(),
-        stay_pic: 'https://airbnbsdc.s3-us-west-1.amazonaws.com/1.webp',
+        name: faker.lorem.word(),
+        image_url: `https://airbnbsdc.s3-us-west-1.amazonaws.com/${random}.webp`,
       };
       userLists.push(entry);
     }

@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const records = 800000;
+const records = 1e6;
 
 const similarListing = (startIndex, endIndex) => {
   const similarListings = [];
   for (let i = startIndex + 1; i <= endIndex + 1; i += 1) {
-    const numberOfSimilarListings = Math.floor(Math.random() * (4 - 2 + 1) + 2) * 4;
+    const numberOfSimilarListings = Math.floor(Math.random() * (3 - 2 + 1) + 2) * 4;
     for (let j = 0; j < numberOfSimilarListings; j += 1) {
       const randomListings = Math.floor(Math.random() * (records - 1) + 1);
       const entry = {

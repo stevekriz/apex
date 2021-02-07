@@ -5,8 +5,9 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const listing = (startIndex, endIndex) => {
   const listings = [];
   for (let i = startIndex; i <= endIndex; i += 1) {
+    const random = Math.floor(Math.random() * (503 - 1 + 1) + 1);
     const entry = {
-      image_url: 'https://airbnbsdc.s3-us-west-1.amazonaws.com/1.webp',
+      image_url: `https://airbnbsdc.s3-us-west-1.amazonaws.com/${random}.webp`,
       house_type: faker.lorem.word(),
       description: faker.lorem.words(),
       is_super_host: faker.random.boolean(),
