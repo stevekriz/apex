@@ -1,12 +1,12 @@
 # Database Queries And Sample Results
 
 ## Summary
-| SQL query                                                                                                                                                                                                    | SQL initial bench | endpoint                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------------------------------- |
-| SELECT * FROM listings WHERE id IN (SELECT similar_listing_id FROM similar_listings WHERE primary_listing_id=400000);                                                                                        | 324.825 ms        | GET /api/similar_listings/:primary_listing_id |
-| INSERT INTO listings (image_url, house_type, description, is_super_host, average_rating, number_of_beds, number_of_reviews, price_per_night) values ('string', 'string', 'string', false, 4.32, 3, 23, 332); | 6.104 ms          | POST /api/listings                            |
-| UPDATE listings SET is_super_host=true WHERE id=1000005;                                                                                                                                                     | 0.322 ms          | PATCH /api/listings/:listing_id               |
-| DELETE FROM listings WHERE id=1000005;                                                                                                                                                                       | 0.281 ms          | DELETE /api/listings/:listing_id              |
+| SQL query                                                                                                                                                                                                    | SQL initial bench | optimized | endpoint                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------- | --------------------------------------------- |
+| SELECT * FROM listings WHERE id IN (SELECT similar_listing_id FROM similar_listings WHERE primary_listing_id=400000);                                                                                        | 324.825 ms        | 0.531 ms  | GET /api/similar_listings/:primary_listing_id |
+| INSERT INTO listings (image_url, house_type, description, is_super_host, average_rating, number_of_beds, number_of_reviews, price_per_night) values ('string', 'string', 'string', false, 4.32, 3, 23, 332); | 6.104 ms          |           | POST /api/listings                            |
+| UPDATE listings SET is_super_host=true WHERE id=1000005;                                                                                                                                                     | 0.322 ms          |           | PATCH /api/listings/:listing_id               |
+| DELETE FROM listings WHERE id=1000005;                                                                                                                                                                       | 0.281 ms          |           | DELETE /api/listings/:listing_id              |
 
 ## Similar listings resource
 
