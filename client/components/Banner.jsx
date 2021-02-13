@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const CarBannerWrapper = styled.div`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
@@ -81,7 +81,7 @@ const CarRightButtonSVG = styled.svg`
   display: block;
   fill: currentcolor;
 `;
-class Banner extends Component {
+class Banner extends React.Component {
   constructor(props) {
     super(props);
 

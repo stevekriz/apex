@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+/* eslint-disable camelcase */
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import StayModal from './StayModal';
 import CarouselEntryBanner from './CarouselEntryBanner';
 
@@ -62,7 +64,7 @@ const HouseInfo = styled.div`
   overflow: hidden;
 `;
 
-class CarouselEntry extends Component {
+class CarouselEntry extends React.Component {
   constructor(props) {
     super(props);
 
@@ -111,14 +113,14 @@ class CarouselEntry extends Component {
     } = this.props;
 
     const {
-      PricePerNight,
-      isSuperHost,
-      imgUrl,
-      AverageRating,
-      HouseType,
-      NumberOfBeds,
+      price_per_night,
+      is_super_host,
+      image_url,
+      average_rating,
+      house_type,
+      number_of_beds,
+      number_of_reviews,
       description,
-      NumOfReviews,
     } = entry;
 
     const { liked, showModal } = this.state;
@@ -126,12 +128,12 @@ class CarouselEntry extends Component {
       <Entry page={page}>
         <ImgContainer>
           <CarouselEntryBanner
-            isSuperHost={isSuperHost}
+            isSuperHost={is_super_host}
             handleClick={this.handleClick}
             liked={liked}
           />
           <Img
-            src={imgUrl}
+            src={image_url}
             width="256px"
             height="171px"
             alt="House Image"
@@ -149,17 +151,17 @@ class CarouselEntry extends Component {
                 <path d="M972 380c9 28 2 50-20 67L725 619l87 280c11 39-18 75-54 75-12 0-23-4-33-12L499 790 273 962a58 58 0 0 1-78-12 50 50 0 0 1-8-51l86-278L46 447c-21-17-28-39-19-67 8-24 29-40 52-40h280l87-279c7-23 28-39 52-39 25 0 47 17 54 41l87 277h280c24 0 45 16 53 40z" />
               </StarSVG>
             </StarContainer>
-            {` ${AverageRating}`}
+            {` ${average_rating}`}
             <ReviewCount>
-              {` (${NumOfReviews})`}
+              {` (${number_of_reviews})`}
             </ReviewCount>
           </div>
           <div>
-            {`${HouseType} · ${NumberOfBeds} beds`}
+            {`${house_type} · ${number_of_beds} beds`}
           </div>
           <span>{description}</span>
           <div>
-            <b>{`$${PricePerNight}`}</b>
+            <b>{`$${price_per_night}`}</b>
             {' '}
             {'/ night '}
           </div>
@@ -182,13 +184,13 @@ CarouselEntry.propTypes = {
   page: PropTypes.number.isRequired,
   stayList: PropTypes.arrayOf(PropTypes.object).isRequired,
   entry: PropTypes.shape({
-    PricePerNight: PropTypes.number.isRequired,
-    isSuperHost: PropTypes.bool.isRequired,
-    imgUrl: PropTypes.string.isRequired,
-    AverageRating: PropTypes.string.isRequired,
-    HouseType: PropTypes.string.isRequired,
-    NumberOfBeds: PropTypes.number.isRequired,
+    price_per_night: PropTypes.number.isRequired,
+    is_super_host: PropTypes.bool.isRequired,
+    image_url: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+    house_type: PropTypes.string.isRequired,
+    number_of_beds: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    NumOfReviews: PropTypes.number.isRequired,
+    number_of_reviews: PropTypes.number.isRequired,
   }).isRequired,
 };

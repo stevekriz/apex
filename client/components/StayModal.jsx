@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+
 import StayListEntry from './StayListEntry';
 
 const modalRoot = document.getElementById('img_carousel');
@@ -163,7 +164,7 @@ const CreateNewListText = styled.div`
   border-radius: 8px;
 `;
 
-class StayModal extends Component {
+class StayModal extends React.Component {
   constructor(props) {
     super(props);
 
