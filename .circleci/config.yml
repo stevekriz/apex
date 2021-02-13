@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/carousel
     docker:
       - image: circleci/node:latest
-      - image: circleci/mongo:4.4.3
+      - image: circleci/postgres:latest
     steps:
       - checkout
       - restore_cache:

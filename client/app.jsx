@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Banner from './Banner';
-import Carousel from './Carousel';
+import { get } from 'axios';
+import styled from 'styled-components';
+
+import Banner from './components/Banner';
+import Carousel from './components/Carousel';
 
 const CarouselAppBackdrop = styled.div`
   display: flex;
@@ -25,14 +26,14 @@ const CarouselAppContainer = styled.div`
   justify-content: center;
 `;
 
-class CarouselApp extends Component {
+class CarouselApp extends React.Component {
   constructor(props) {
     super(props);
 
-    const { _id } = props;
+    const { primaryListingId } = props;
 
     this.state = {
-      dataId: _id,
+      primaryListingId,
       gallery: [],
       stayList: [],
       page: 1,
@@ -48,13 +49,15 @@ class CarouselApp extends Component {
   }
 
   getData() {
-    const { dataId } = this.state;
-    axios.get(`/api/img_carousel/${dataId}`)
-      .then((response) => this.setState({
-        gallery: response.data[0].ImgUrls,
-        stayList: response.data[0].stayList,
-        isLoading: false,
-      }))
+    const { primaryListingId } = this.state;
+    get(`/api/similar_listings/${primaryListingId}`)
+      .then((response) => {
+        this.setState({
+          gallery: response.data.rows,
+          // stayList: response.data[0].stayList,
+          isLoading: false,
+        });
+      })
       .catch((err) => { throw err; });
   }
 
@@ -110,7 +113,6 @@ class CarouselApp extends Component {
           />
         </CarouselAppContainer>
       </CarouselAppBackdrop>
-
     );
   }
 }
@@ -118,5 +120,5 @@ class CarouselApp extends Component {
 export default CarouselApp;
 
 CarouselApp.propTypes = {
-  _id: PropTypes.string.isRequired,
+  primaryListingId: PropTypes.number.isRequired,
 };
