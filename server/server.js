@@ -1,28 +1,26 @@
 /* eslint-disable camelcase */
+
 const express = require('express');
 const http = require('http');
-const https = require('https');
-// const compression = require('compression');
+const compression = require('compression');
 const bodyParser = require('body-parser');
 const path = require('path');
 const { Pool } = require('pg');
 require('newrelic');
 
 const pool = new Pool({
-  user: 'postgres',
-  password: 'postgres',
   database: 'carousel',
   port: 5432,
 });
+
 pool.connect();
 
 http.globalAgent.maxSockets = Infinity;
-https.globalAgent.maxSockets = Infinity;
 
 const app = express();
 const port = 3000;
 
-// app.use(compression());
+app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

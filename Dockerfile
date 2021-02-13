@@ -5,8 +5,8 @@ WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "./"]
 
-RUN npm install --production
+RUN npm ci --production
 
 COPY . .
 
-CMD [ "npm", "run", "docker-start"]
+CMD [ "npm", "run", "docker" ]

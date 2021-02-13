@@ -4,7 +4,7 @@ const usersGenerator = require('./generators/usersGenerator.js');
 const userLists = require('./generators/userListsGenerator.js');
 const userListListings = require('./generators/userListListingsGenerator.js');
 
-const records = 1e6;
+const records = 500000;
 
 listings.writeListings(records);
 similarListings.writeSimilarListings(records);

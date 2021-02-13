@@ -9,3 +9,6 @@ script.js
 newrelic_agent.log
 .eslintignore
 server/.clinic
+server/server.js
+public/loaderio-1a12f34b3926e672abe069d37a549130.txt
+docker-compose.yml

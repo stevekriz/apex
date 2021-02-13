@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const records = 1e6;
+const records = 500000;
 
 const userListListing = (startIndex, endIndex) => {
   const userListListings = [];
