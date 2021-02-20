@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import StayListEntry from './StayListEntry';
 
-const modalRoot = document.getElementById('img_carousel');
+const modalRoot = document.getElementById('carousel');
 
 const BackDrop = styled.div`
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;

@@ -11,7 +11,7 @@ const userList = (startIndex, endIndex) => {
       const entry = {
         users_id: i,
         name: faker.lorem.word(),
-        image_url: `https://airbnbsdc.s3-us-west-1.amazonaws.com/${random}.webp`,
+        image_url: `../../public/assets/pictures/${random}.webp`,
       };
       userLists.push(entry);
     }
@@ -21,7 +21,7 @@ const userList = (startIndex, endIndex) => {
 
 const csvWriter = createCsvWriter({
   path: '/Users/stevekriz/hr/sdc/carousel/database/CSV/userLists.csv',
-  header: ['users_id', 'stay_name', 'stay_pic'],
+  header: ['users_id', 'name', 'image_url'],
 });
 
 async function writeUserLists(n) {

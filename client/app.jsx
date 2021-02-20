@@ -54,7 +54,6 @@ class CarouselApp extends React.Component {
       .then((response) => {
         this.setState({
           gallery: response.data.rows,
-          // stayList: response.data[0].stayList,
           isLoading: false,
         });
       })

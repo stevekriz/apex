@@ -1,6 +1,10 @@
-# Application to Browse and Reserve Rental Property
+# Application to Reserve Rental Property
 
 ## Similar Rental Listing Carousel
+
+Snapshot of Loader.io test:
+ <p align="center">
+ <img src="Optimized Nginx.png" width="70%"></p>
 
 ### Displays similar rental listings based on...
 
@@ -10,18 +14,17 @@
 
 ### Related Projects
 
-  - https://github.com/The-Casuals/photo_gallery
-  - https://github.com/The-Casuals/casual-checkout-service
-  - https://github.com/The-Casuals/reviews
-  - https://github.com/The-Casuals/photo_carousel
+  - https://github.com/ApexCo/photo_gallery
+  - https://github.com/ApexCo/reviews
+  - https://github.com/ApexCo/carousel
 
 Snapshot of component:
  <p align="center">
- <img src="snapshot.png" width="70%"></p>
+ <img src="Carousel.png" width="70%"></p>
 
-Page Speed:
+Google Lighthouse:
 <p align="center">
-<img src="loadspeed.png" width="70%"></p>
+<img src="Lighthouse.png" width="70%"></p>
 
 ## Table of Contents
 
@@ -31,7 +34,7 @@ Page Speed:
 ## Usage
 From within the root directory:
 
-  1. npm install: installs packages and dependencies necessary
+  1. npm i: installs packages and dependencies
   2. npm start: starts the server
   3. npm run generate: seeds the database
   4. npm run watch: will run webpack bundler and watch files
@@ -39,7 +42,7 @@ From within the root directory:
 
 ## Requirements
   - Node v14.15.4
-  - MongoDB v4.4.3
+  - PostgreSQL v13.2
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
