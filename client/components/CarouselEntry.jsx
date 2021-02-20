@@ -51,7 +51,7 @@ const Img = styled.img`
 const StarSVG = styled.svg`
   height: 14px;
   width: 14px;
-  fill: currentcolor;
+  fill: rgb(61,158,20);
 `;
 const HouseInfo = styled.div`
   position: relative;
