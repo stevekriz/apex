@@ -9,7 +9,7 @@ import CarouselEntryBanner from './CarouselEntryBanner';
 const StarContainer = styled.span`
   width: 20px;
   height: 20px;
-  color: #ff385c;
+  color: rgb(61,158,20);
 `;
 
 const ReviewCount = styled.span`
