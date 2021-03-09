@@ -4,7 +4,7 @@
 
 Snapshot of Loader.io test:
  <p align="center">
- <img src="Optimized Nginx.png" width="70%"></p>
+ <img src="./snippets/Optimized Nginx.png" width="70%"></p>
 
 ### Displays similar rental listings based on...
 
@@ -20,11 +20,11 @@ Snapshot of Loader.io test:
 
 Snapshot of component:
  <p align="center">
- <img src="Carousel.png" width="70%"></p>
+ <img src="./snippets/Carousel.png" width="70%"></p>
 
 Google Lighthouse:
 <p align="center">
-<img src="Lighthouse.png" width="70%"></p>
+<img src="./snippets/Lighthouse.png" width="70%"></p>
 
 ## Table of Contents
 
@@ -194,4 +194,4 @@ deployed to multiple nodes using replication.
 ### Database ER Diagram:
 
 <p align="center">
-<img src="databaseERDiagram.png" width="70%"></p>
+<img src="./snippets/databaseERDiagram.png" width="70%"></p>
