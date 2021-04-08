@@ -1,19 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import CarouselEntry from './CarouselEntry';
+import CarouselEntry from "./CarouselEntry";
 
 const TheCarousel = styled.div`
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
   box-sizing: border-box;
   width: 100%;
   height: 350px;
   overflow-x: auto;
   white-space: nowrap;
   &::-webkit-scrollbar {
-    width: 0 !important
-  };
+    width: 0 !important;
+  }
 `;
 
 const ImgCarouselContainer = styled.div`
@@ -33,11 +34,7 @@ class Carousel extends React.Component {
   }
 
   render() {
-    const {
-      page,
-      gallery,
-      stayList,
-    } = this.props;
+    const { page, gallery, stayList } = this.props;
     return (
       <ImgCarouselContainer>
         <TheCarousel>

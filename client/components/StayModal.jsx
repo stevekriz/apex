@@ -1,17 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import ReactDOM from "react-dom";
+import styled from "styled-components";
 
-import StayListEntry from './StayListEntry';
+import StayListEntry from "./StayListEntry";
 
-const modalRoot = document.getElementById('carousel');
+const modalRoot = document.getElementById("carousel");
 
 const BackDrop = styled.div`
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
   display: flex;
   justify-content: center;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   z-index: 5;
   top: 0px;
@@ -22,26 +23,26 @@ const BackDrop = styled.div`
 `;
 
 const ModalContainer = styled.div`
-background: rgb(255, 255, 255);
-display: flex;
-flex-wrap: nowrap;
-flex-direction: column;
-position: fixed;
-top: 50vh;
-left: 50vw;
-transform: translate(-50%, -50%);
-overflow-y: hidden;
-z-index: 6;
-width: 39.4%;
-height: 63.6%;
-max-width: 568px;
-max-height: 456px;
-box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px ;
-border-radius: 12px;
-animation-duration: 400ms;
-animation-iteration-count: 1;
-animation-fill-mode: both;
-animation-name: keyframe_d37zz3;
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  overflow-y: hidden;
+  z-index: 6;
+  width: 39.4%;
+  height: 63.6%;
+  max-width: 568px;
+  max-height: 456px;
+  box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px;
+  border-radius: 12px;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: keyframe_d37zz3;
 `;
 
 const Header = styled.div`
@@ -60,7 +61,7 @@ const StayListContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 330px;
-  overflowY: hidden;
+  overflowy: hidden;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 20px;
@@ -108,7 +109,7 @@ const HeaderText = styled.div`
 
 const HideButton = styled.button`
   position: relative;
-  background: ${(props) => (props.isHovered ? '#f7f7f7' : 'transparent')};
+  background: ${(props) => (props.isHovered ? "#f7f7f7" : "transparent")};
   display: inline-block;
   margin-top: 13px;
   margin-left: 15px;
@@ -170,7 +171,7 @@ class StayModal extends React.Component {
 
     this.state = {};
 
-    this.el = document.createElement('div');
+    this.el = document.createElement("div");
   }
 
   componentDidMount() {
@@ -188,10 +189,7 @@ class StayModal extends React.Component {
         <BackDrop onClick={HideModal}>
           <ModalContainer onClick={(e) => e.stopPropagation()}>
             <Header>
-              <HideButton
-                onClick={HideModal}
-                aria-label="Hide Stay list"
-              >
+              <HideButton onClick={HideModal} aria-label="Hide Stay list">
                 <Xsymbol
                   viewBox="0 0 32 32"
                   xmlns="http://www.w3.org/2000/svg"
@@ -214,9 +212,7 @@ class StayModal extends React.Component {
                       <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
                     </PlusSymbol>
                   </PlusSymbolContainer>
-                  <CreateNewListText>
-                    Create a new list
-                  </CreateNewListText>
+                  <CreateNewListText>Create a new list</CreateNewListText>
                 </NewStayButton>
               </CreateStayContainer>
               {stayList.map((stay) => (
@@ -231,7 +227,7 @@ class StayModal extends React.Component {
           </ModalContainer>
         </BackDrop>
       </>,
-      this.el,
+      this.el
     );
   }
 }

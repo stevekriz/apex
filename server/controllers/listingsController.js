@@ -1,4 +1,4 @@
-const model = require('../models/listingsModel.js');
+const model = require("../models/listingsModel.js");
 
 const post = (req, res) => {
   model.post(req.body, (err, success) => {

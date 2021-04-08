@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const StayEntryContainer = styled.div`
   cursor: pointer;
@@ -58,7 +58,6 @@ const StayEntryInfoContainer = styled.div`
   width: 80%;
   text-align: left;
   margin-left: 16px;
-
 `;
 const StayEntryType = styled.div`
   position: relative;
@@ -122,9 +121,7 @@ class StayListEntry extends React.Component {
     const { count } = this.state;
     return (
       <StayEntryContainer onClick={this.handleClick}>
-        <StayEntryButton
-          aria-label="center"
-        >
+        <StayEntryButton aria-label="center">
           <StayImageContainer>
             <Img
               src={image_url}
@@ -135,12 +132,8 @@ class StayListEntry extends React.Component {
           </StayImageContainer>
         </StayEntryButton>
         <StayEntryInfoContainer>
-          <StayEntryType>
-            Any time
-          </StayEntryType>
-          <StayEntryName>
-            {name}
-          </StayEntryName>
+          <StayEntryType>Any time</StayEntryType>
+          <StayEntryName>{name}</StayEntryName>
           <StayEntryAmount>
             {count === 1 ? `${count} stay` : `${count} stays`}
           </StayEntryAmount>
@@ -159,5 +152,4 @@ StayListEntry.propTypes = {
     name: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
   }).isRequired,
-
 };

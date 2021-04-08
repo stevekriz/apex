@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -60,11 +60,11 @@ const IsLikedButton = styled.button`
 
 const IsLikedSVG = styled.svg`
   display: block;
-  fill: ${(props) => (props.isClicked ? 'rgb(255, 56, 92)' : 'rgba(0, 0, 0, 0.5)')};
+  fill: ${(props) =>
+    props.isClicked ? "rgb(255, 56, 92)" : "rgba(0, 0, 0, 0.5)"};
   height: 24px;
   width: 24px;
-  stroke:
-  rgb(255, 255, 255);
+  stroke: rgb(255, 255, 255);
   stroke-width: 2;
   overflow: visible;
 `;
@@ -77,12 +77,11 @@ const CarouselEntryBanner = (props) => {
         <SuperHostContainer>
           <SuperHost>SUPERHOST</SuperHost>
         </SuperHostContainer>
-      ) : ''}
+      ) : (
+        ""
+      )}
       <IsLikedContainer>
-        <IsLikedButton
-          onClick={handleClick}
-          aria-label="Right Align"
-        >
+        <IsLikedButton onClick={handleClick} aria-label="Right Align">
           <IsLikedSVG
             isClicked={liked}
             viewBox="0 0 32 32"

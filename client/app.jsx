@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { get } from 'axios';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import { get } from "axios";
+import styled from "styled-components";
 
-import Banner from './components/Banner';
-import Carousel from './components/Carousel';
+import Banner from "./components/Banner";
+import Carousel from "./components/Carousel";
 
 const CarouselAppBackdrop = styled.div`
   display: flex;
@@ -14,7 +14,8 @@ const CarouselAppBackdrop = styled.div`
 `;
 
 const CarouselAppContainer = styled.div`
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif Sans;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif Sans;
   margin: 5%;
   align: center;
   display: flex;
@@ -57,13 +58,15 @@ class CarouselApp extends React.Component {
           isLoading: false,
         });
       })
-      .catch((err) => { throw err; });
+      .catch((err) => {
+        throw err;
+      });
   }
 
   scrollPage(direction) {
     const { gallery, page } = this.state;
     const maxPage = Math.ceil(gallery.length / 4);
-    if (direction === 'right') {
+    if (direction === "right") {
       if (page === maxPage) {
         this.setState({
           page: 1,
@@ -73,7 +76,7 @@ class CarouselApp extends React.Component {
           page: page + 1,
         });
       }
-    } else if (direction === 'left') {
+    } else if (direction === "left") {
       if (page === 1) {
         this.setState({
           page: maxPage,
@@ -87,14 +90,10 @@ class CarouselApp extends React.Component {
   }
 
   render() {
-    const {
-      page, gallery, stayList, isLoading,
-    } = this.state;
+    const { page, gallery, stayList, isLoading } = this.state;
 
     if (isLoading) {
-      return (
-        <CarouselAppBackdrop>...Loading</CarouselAppBackdrop>
-      );
+      return <CarouselAppBackdrop>...Loading</CarouselAppBackdrop>;
     }
 
     return (
@@ -105,11 +104,7 @@ class CarouselApp extends React.Component {
             page={page}
             maxPage={Math.ceil(gallery.length / 4)}
           />
-          <Carousel
-            stayList={stayList}
-            gallery={gallery}
-            page={page}
-          />
+          <Carousel stayList={stayList} gallery={gallery} page={page} />
         </CarouselAppContainer>
       </CarouselAppBackdrop>
     );

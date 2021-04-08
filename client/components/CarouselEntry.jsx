@@ -1,15 +1,15 @@
 /* eslint-disable camelcase */
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import StayModal from './StayModal';
-import CarouselEntryBanner from './CarouselEntryBanner';
+import StayModal from "./StayModal";
+import CarouselEntryBanner from "./CarouselEntryBanner";
 
 const StarContainer = styled.span`
   width: 20px;
   height: 20px;
-  color: rgb(61,158,20);
+  color: rgb(61, 158, 20);
 `;
 
 const ReviewCount = styled.span`
@@ -17,7 +17,8 @@ const ReviewCount = styled.span`
 `;
 
 const Entry = styled.div`
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
   font-size: 16px;
   display: inline-block;
   position: relative;
@@ -51,7 +52,7 @@ const Img = styled.img`
 const StarSVG = styled.svg`
   height: 14px;
   width: 14px;
-  fill: rgb(61,158,20);
+  fill: rgb(61, 158, 20);
 `;
 const HouseInfo = styled.div`
   position: relative;
@@ -106,11 +107,7 @@ class CarouselEntry extends React.Component {
   }
 
   render() {
-    const {
-      entry,
-      page,
-      stayList,
-    } = this.props;
+    const { entry, page, stayList } = this.props;
 
     const {
       price_per_night,
@@ -132,12 +129,7 @@ class CarouselEntry extends React.Component {
             handleClick={this.handleClick}
             liked={liked}
           />
-          <Img
-            src={image_url}
-            width="256px"
-            height="171px"
-            alt="House Image"
-          />
+          <Img src={image_url} width="256px" height="171px" alt="House Image" />
         </ImgContainer>
         <HouseInfo>
           <div>
@@ -152,18 +144,12 @@ class CarouselEntry extends React.Component {
               </StarSVG>
             </StarContainer>
             {` ${average_rating}`}
-            <ReviewCount>
-              {` (${number_of_reviews})`}
-            </ReviewCount>
+            <ReviewCount>{` (${number_of_reviews})`}</ReviewCount>
           </div>
-          <div>
-            {`${house_type} · ${number_of_beds} beds`}
-          </div>
+          <div>{`${house_type} · ${number_of_beds} beds`}</div>
           <span>{description}</span>
           <div>
-            <b>{`$${price_per_night}`}</b>
-            {' '}
-            {'/ night '}
+            <b>{`$${price_per_night}`}</b> {"/ night "}
           </div>
         </HouseInfo>
         {showModal ? (
