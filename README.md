@@ -38,11 +38,12 @@ Google Lighthouse:
 
 From within the root directory:
 
-1. npm i: installs packages and dependencies
-2. npm start: starts the server
-3. npm run generate: seeds the database
-4. npm run watch: will run webpack bundler and watch files
-5. npm test: runs testing suite
+1. npm install: installs packages and dependencies
+2. npm run generate: generates the CSVs
+3. load schema.sql into postgres using something like: psql -U postgres -f ./database/schema.sql
+4. npm start: opens browser and starts the server
+5. npm run watch: will run webpack bundler and watch files
+6. npm test: runs testing suite
 
 ## Requirements
 

@@ -1,28 +1,28 @@
-import { configure, mount, render } from "enzyme";
-import React from "react";
-import Adapter from "enzyme-adapter-react-16";
-import App from "../client/app";
-import Banner from "../client/components/Banner";
-import Carousel from "../client/components/Carousel";
+import { configure, mount, render } from 'enzyme';
+import React from 'react';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import App from '../client/app';
+import Banner from '../client/components/Banner';
+import Carousel from '../client/components/Carousel';
 
 configure({ adapter: new Adapter() });
 
 const direction = jest.fn();
-describe("<App />", () => {
+describe('<App />', () => {
   const primaryListingId = 5;
   const component = mount(<App primaryListingId={primaryListingId} />);
 
-  it("should exist", () => {
+  it('should exist', () => {
     expect(component).toBeDefined();
   });
 
-  it("should render Banner", () => {
+  it('should render Banner', () => {
     expect(
       component.contains(<Banner direction={direction} page={1} maxPage={3} />)
     ).toBe(false);
   });
 
-  it("should render Carousel", () => {
+  it('should render Carousel', () => {
     expect(
       component.contains(
         <Carousel
@@ -30,8 +30,8 @@ describe("<App />", () => {
           gallery={[]}
           stayList={[
             {
-              name: "name",
-              image_url: "string",
+              name: 'name',
+              image_url: 'string',
             },
           ]}
         />
@@ -40,8 +40,8 @@ describe("<App />", () => {
   });
 });
 
-describe("<Banner />", () => {
-  it("should render the Banner element", () => {
+describe('<Banner />', () => {
+  it('should render the Banner element', () => {
     const component = render(
       <Banner direction={direction} page={1} maxPage={3} />
     );
@@ -50,15 +50,15 @@ describe("<Banner />", () => {
   });
 });
 
-describe("<Carousel />", () => {
-  it("should render the carousel element", () => {
+describe('<Carousel />', () => {
+  it('should render the carousel element', () => {
     const data = [
       {
         id: 1,
         image_url:
-          "https://fec-photos-storage.s3-us-west-1.amazonaws.com/3/12.jpg",
-        description: "Legacy",
-        house_type: "illum",
+          'https://fec-photos-storage.s3-us-west-1.amazonaws.com/3/12.jpg',
+        description: 'Legacy',
+        house_type: 'illum',
         is_super_host: false,
         average_rating: 2.34,
         number_of_beds: 3,
@@ -73,8 +73,8 @@ describe("<Carousel />", () => {
         gallery={data}
         stayList={[
           {
-            name: "name",
-            image_url: "string",
+            name: 'name',
+            image_url: 'string',
           },
         ]}
       />

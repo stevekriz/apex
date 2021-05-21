@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const CarBannerWrapper = styled.div`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
@@ -100,34 +100,34 @@ class Banner extends React.Component {
       <CarBannerWrapper>
         <CarHeaderText>More places to stay</CarHeaderText>
         <CarPageScrollButton
-          onClick={() => this.handleClick("right")}
-          aria-label="Previous"
+          onClick={() => this.handleClick('right')}
+          aria-label='Previous'
         >
           <CarRightButtonSVG
-            viewBox="0 0 18 18"
-            role="presentation"
-            aria-hidden="true"
-            focusable="false"
+            viewBox='0 0 18 18'
+            role='presentation'
+            aria-hidden='true'
+            focusable='false'
           >
             <path
-              d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z"
-              fillRule="evenodd"
+              d='m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z'
+              fillRule='evenodd'
             />
           </CarRightButtonSVG>
         </CarPageScrollButton>
         <CarPageScrollButton
-          onClick={() => this.handleClick("left")}
-          aria-label="Next"
+          onClick={() => this.handleClick('left')}
+          aria-label='Next'
         >
           <CarLeftButtonSVG
-            viewBox="0 0 18 18"
-            role="presentation"
-            aria-hidden="true"
-            focusable="false"
+            viewBox='0 0 18 18'
+            role='presentation'
+            aria-hidden='true'
+            focusable='false'
           >
             <path
-              d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z"
-              fillRule="evenodd"
+              d='m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z'
+              fillRule='evenodd'
             />
           </CarLeftButtonSVG>
         </CarPageScrollButton>

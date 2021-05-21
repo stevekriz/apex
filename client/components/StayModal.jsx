@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 
-import StayListEntry from "./StayListEntry";
+import StayListEntry from './StayListEntry';
 
-const modalRoot = document.getElementById("carousel");
+const modalRoot = document.getElementById('carousel');
 
 const BackDrop = styled.div`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
@@ -109,7 +109,7 @@ const HeaderText = styled.div`
 
 const HideButton = styled.button`
   position: relative;
-  background: ${(props) => (props.isHovered ? "#f7f7f7" : "transparent")};
+  background: ${props => (props.isHovered ? '#f7f7f7' : 'transparent')};
   display: inline-block;
   margin-top: 13px;
   margin-left: 15px;
@@ -171,7 +171,7 @@ class StayModal extends React.Component {
 
     this.state = {};
 
-    this.el = document.createElement("div");
+    this.el = document.createElement('div');
   }
 
   componentDidMount() {
@@ -187,35 +187,35 @@ class StayModal extends React.Component {
     return ReactDOM.createPortal(
       <>
         <BackDrop onClick={HideModal}>
-          <ModalContainer onClick={(e) => e.stopPropagation()}>
+          <ModalContainer onClick={e => e.stopPropagation()}>
             <Header>
-              <HideButton onClick={HideModal} aria-label="Hide Stay list">
+              <HideButton onClick={HideModal} aria-label='Hide Stay list'>
                 <Xsymbol
-                  viewBox="0 0 32 32"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                  role="presentation"
-                  focusable="false"
-                  path="m6 6 20 20"
+                  viewBox='0 0 32 32'
+                  xmlns='http://www.w3.org/2000/svg'
+                  aria-hidden='true'
+                  role='presentation'
+                  focusable='false'
+                  path='m6 6 20 20'
                 >
-                  <path d="m8 6 20 20" />
-                  <path d="m28 6-20 20" />
+                  <path d='m8 6 20 20' />
+                  <path d='m28 6-20 20' />
                 </Xsymbol>
               </HideButton>
               <HeaderText>Save to a list</HeaderText>
             </Header>
             <StayListContainer>
               <CreateStayContainer>
-                <NewStayButton aria-label="Create New Stay">
+                <NewStayButton aria-label='Create New Stay'>
                   <PlusSymbolContainer>
                     <PlusSymbol>
-                      <path d="M28,17H17V28H15V17H4V15H15V4h2V15H28Z" />
+                      <path d='M28,17H17V28H15V17H4V15H15V4h2V15H28Z' />
                     </PlusSymbol>
                   </PlusSymbolContainer>
                   <CreateNewListText>Create a new list</CreateNewListText>
                 </NewStayButton>
               </CreateStayContainer>
-              {stayList.map((stay) => (
+              {stayList.map(stay => (
                 <StayListEntry
                   hideModal={HideModal}
                   toggleLiked={toggleLiked}

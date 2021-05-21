@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import CarouselEntry from "./CarouselEntry";
+import CarouselEntry from './CarouselEntry';
 
 const TheCarousel = styled.div`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
@@ -38,7 +38,7 @@ class Carousel extends React.Component {
     return (
       <ImgCarouselContainer>
         <TheCarousel>
-          {gallery.map((entry) => (
+          {gallery.map(entry => (
             <CarouselEntry
               stayList={stayList}
               page={page}

@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { get } from "axios";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { get } from 'axios';
+import styled from 'styled-components';
 
-import Banner from "./components/Banner";
-import Carousel from "./components/Carousel";
+import Banner from './components/Banner';
+import Carousel from './components/Carousel';
 
 const CarouselAppBackdrop = styled.div`
   display: flex;
@@ -52,13 +52,13 @@ class CarouselApp extends React.Component {
   getData() {
     const { primaryListingId } = this.state;
     get(`/api/similar_listings/${primaryListingId}`)
-      .then((response) => {
+      .then(response => {
         this.setState({
           gallery: response.data.rows,
           isLoading: false,
         });
       })
-      .catch((err) => {
+      .catch(err => {
         throw err;
       });
   }
@@ -66,7 +66,7 @@ class CarouselApp extends React.Component {
   scrollPage(direction) {
     const { gallery, page } = this.state;
     const maxPage = Math.ceil(gallery.length / 4);
-    if (direction === "right") {
+    if (direction === 'right') {
       if (page === maxPage) {
         this.setState({
           page: 1,
@@ -76,7 +76,7 @@ class CarouselApp extends React.Component {
           page: page + 1,
         });
       }
-    } else if (direction === "left") {
+    } else if (direction === 'left') {
       if (page === 1) {
         this.setState({
           page: maxPage,

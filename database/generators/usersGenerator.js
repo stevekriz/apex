@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-const faker = require("faker");
-const createCsvWriter = require("csv-writer").createObjectCsvWriter;
+const faker = require('faker');
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const user = (startIndex, endIndex) => {
   const users = [];
@@ -18,13 +18,13 @@ const user = (startIndex, endIndex) => {
 };
 
 const csvWriter = createCsvWriter({
-  path: "/Users/stevekriz/hr/sdc/carousel/database/CSV/users.csv",
-  header: ["user_name", "user_password", "email", "first_name", "last_name"],
+  path: './database/CSV/users.csv',
+  header: ['user_name', 'user_password', 'email', 'first_name', 'last_name'],
 });
 
 async function writeUsers(n) {
   const currentChunk = Math.floor(n / 100);
-  console.log("Chunk count: ", currentChunk);
+  console.log('Chunk count: ', currentChunk);
 
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < 100; ++i) {

@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const StayEntryContainer = styled.div`
   cursor: pointer;
@@ -121,13 +121,13 @@ class StayListEntry extends React.Component {
     const { count } = this.state;
     return (
       <StayEntryContainer onClick={this.handleClick}>
-        <StayEntryButton aria-label="center">
+        <StayEntryButton aria-label='center'>
           <StayImageContainer>
             <Img
               src={image_url}
-              alt="Stay list image"
-              height="35px"
-              width="35px"
+              alt='Stay list image'
+              height='35px'
+              width='35px'
             />
           </StayImageContainer>
         </StayEntryButton>

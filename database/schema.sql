@@ -53,10 +53,10 @@ CREATE TABLE IF NOT EXISTS user_list_listings (
   FOREIGN KEY (listing_id) REFERENCES listings(id) ON DELETE CASCADE
 );
 
-COPY listings(image_url, house_type, description, is_super_host, average_rating, number_of_beds, number_of_reviews, price_per_night) FROM '/Users/stevekriz/hr/sdc/carousel/database/CSV/listings.csv' WITH DELIMITER ',';
-COPY similar_listings(primary_listing_id, similar_listing_id) FROM '/Users/stevekriz/hr/sdc/carousel/database/CSV/similarListings.csv' WITH DELIMITER ',';
-COPY users(user_name, user_password, email, first_name, last_name) FROM '/Users/stevekriz/hr/sdc/carousel/database/CSV/users.csv' WITH DELIMITER ',';
-COPY user_lists(users_id, name, image_url) FROM '/Users/stevekriz/hr/sdc/carousel/database/CSV/userLists.csv' WITH DELIMITER ',';
-COPY user_list_listings(user_lists_id, listing_id) FROM '/Users/stevekriz/hr/sdc/carousel/database/CSV/userListListings.csv' WITH DELIMITER ',';
+\COPY listings(image_url, house_type, description, is_super_host, average_rating, number_of_beds, number_of_reviews, price_per_night) FROM './database/CSV/listings.csv' WITH DELIMITER ',';
+\COPY similar_listings(primary_listing_id, similar_listing_id) FROM './database/CSV/similarListings.csv' WITH DELIMITER ',';
+\COPY users(user_name, user_password, email, first_name, last_name) FROM './database/CSV/users.csv' WITH DELIMITER ',';
+\COPY user_lists(users_id, name, image_url) FROM './database/CSV/userLists.csv' WITH DELIMITER ',';
+\COPY user_list_listings(user_lists_id, listing_id) FROM './database/CSV/userListListings.csv' WITH DELIMITER ',';
 
 CREATE INDEX ON similar_listings (primary_listing_id);

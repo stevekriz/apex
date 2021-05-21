@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const createCsvWriter = require("csv-writer").createObjectCsvWriter;
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const records = 500000;
 
@@ -22,13 +22,13 @@ const userListListing = (startIndex, endIndex) => {
 };
 
 const csvWriter = createCsvWriter({
-  path: "/Users/stevekriz/hr/sdc/carousel/database/CSV/userListListings.csv",
-  header: ["user_lists_id", "listing_id"],
+  path: './database/CSV/userListListings.csv',
+  header: ['user_lists_id', 'listing_id'],
 });
 
 async function writeUserListListings(n) {
   const currentChunk = Math.floor(n / 100);
-  console.log("Chunk count: ", currentChunk);
+  console.log('Chunk count: ', currentChunk);
 
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < 100; ++i) {

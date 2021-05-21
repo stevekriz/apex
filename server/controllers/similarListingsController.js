@@ -1,4 +1,4 @@
-const model = require("../models/similarListingsModel.js");
+const model = require('../models/similarListingsModel.js');
 
 const get = (req, res) => {
   model.get(req.params.primary_listing_id, (err, success) => {
