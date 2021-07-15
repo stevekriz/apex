@@ -3,7 +3,6 @@ node_modules/
 coverage/
 package-lock.json
 public/bundle.js
-database/CSV
 newrelic.js
 script.js
 newrelic_agent.log

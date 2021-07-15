@@ -109,7 +109,7 @@ const HeaderText = styled.div`
 
 const HideButton = styled.button`
   position: relative;
-  background: ${props => (props.isHovered ? '#f7f7f7' : 'transparent')};
+  background: ${(props) => (props.isHovered ? '#f7f7f7' : 'transparent')};
   display: inline-block;
   margin-top: 13px;
   margin-left: 15px;
@@ -187,7 +187,7 @@ class StayModal extends React.Component {
     return ReactDOM.createPortal(
       <>
         <BackDrop onClick={HideModal}>
-          <ModalContainer onClick={e => e.stopPropagation()}>
+          <ModalContainer onClick={(e) => e.stopPropagation()}>
             <Header>
               <HideButton onClick={HideModal} aria-label='Hide Stay list'>
                 <Xsymbol
@@ -215,7 +215,7 @@ class StayModal extends React.Component {
                   <CreateNewListText>Create a new list</CreateNewListText>
                 </NewStayButton>
               </CreateStayContainer>
-              {stayList.map(stay => (
+              {stayList.map((stay) => (
                 <StayListEntry
                   hideModal={HideModal}
                   toggleLiked={toggleLiked}

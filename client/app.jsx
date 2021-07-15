@@ -52,13 +52,13 @@ class CarouselApp extends React.Component {
   getData() {
     const { primaryListingId } = this.state;
     get(`/api/similar_listings/${primaryListingId}`)
-      .then(response => {
+      .then((response) => {
         this.setState({
           gallery: response.data.rows,
           isLoading: false,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         throw err;
       });
   }

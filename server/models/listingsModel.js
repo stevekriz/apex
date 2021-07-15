@@ -28,9 +28,9 @@ const post = (body, cb) => {
 };
 
 const patch = (id, body, cb) => {
-  const keys = Object.keys(body).filter(k => body[k] !== undefined);
+  const keys = Object.keys(body).filter((k) => body[k] !== undefined);
   const names = keys.map((k, index) => `${k} = $${index + 1}`).join(', ');
-  const v = keys.map(k => body[k]);
+  const v = keys.map((k) => body[k]);
   const query = `UPDATE listings SET ${names} WHERE id=$${keys.length + 1}`;
   const values = [...v, id];
   db.query(query, values, cb);

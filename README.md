@@ -41,8 +41,8 @@ From within the root directory:
 1. npm install: installs packages and dependencies
 2. npm run generate: generates the CSVs
 3. load schema.sql into postgres using something like: psql -U postgres -f ./database/schema.sql
-4. npm start: opens browser and starts the server
-5. npm run watch: will run webpack bundler and watch files
+4. npm run watch: will run webpack bundler and watch files
+5. npm start: opens browser and starts the server
 6. npm test: runs testing suite
 
 ## Requirements

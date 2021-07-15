@@ -38,7 +38,7 @@ class Carousel extends React.Component {
     return (
       <ImgCarouselContainer>
         <TheCarousel>
-          {gallery.map(entry => (
+          {gallery.map((entry) => (
             <CarouselEntry
               stayList={stayList}
               page={page}

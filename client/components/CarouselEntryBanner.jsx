@@ -60,7 +60,7 @@ const IsLikedButton = styled.button`
 
 const IsLikedSVG = styled.svg`
   display: block;
-  fill: ${props =>
+  fill: ${(props) =>
     props.isClicked ? 'rgb(255, 56, 92)' : 'rgba(0, 0, 0, 0.5)'};
   height: 24px;
   width: 24px;
@@ -69,7 +69,7 @@ const IsLikedSVG = styled.svg`
   overflow: visible;
 `;
 
-const CarouselEntryBanner = props => {
+const CarouselEntryBanner = (props) => {
   const { isSuperHost, handleClick, liked } = props;
   return (
     <Wrapper>

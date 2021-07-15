@@ -29,7 +29,7 @@ const Entry = styled.div`
   cursor: pointer;
   padding-top: 20px;
   margin: 10px;
-  transform: translateX(-${props => (props.page - 1) * 1128}px);
+  transform: translateX(-${(props) => (props.page - 1) * 1128}px);
   transition: transform 0.3s ease-in;
 `;
 

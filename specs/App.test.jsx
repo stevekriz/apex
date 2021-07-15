@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { configure, mount, render } from 'enzyme';
 import React from 'react';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
